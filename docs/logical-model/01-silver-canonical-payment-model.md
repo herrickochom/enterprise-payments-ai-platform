@@ -1,291 +1,253 @@
 # Silver Canonical Payment Model (SLV)
 
-This document defines the logical Silver canonical payment model for the Enterprise Payments AI Platform. It documents Silver-level canonical entities with the `slv_` prefix and specifies business purpose, grain, keys, canonical attributes, relationships, ISO 20022 alignment, and lineage requirements.
+This document defines the logical Silver canonical payment model for the Enterprise Payments AI Platform. It documents Silver-level canonical entities with the `slv_` prefix and specifies business purpose, primary keys, foreign keys, important business attributes, relationships, ISO 20022 source messages, and lineage requirements.
 
 > Silver is the trusted enterprise payment domain layer between Bronze and Gold. It is a logical contract — not a conceptual model and not a physical implementation.
 
 ## Purpose
 
-- **Silver layer responsibility**: Provide canonical, normalized and lineage-driven logical entities that represent payments, messages, events, parties, accounts and supporting artefacts.
-- **Enterprise canonical payment representation**: Normalize ISO 20022 and operational feeds into consistent records usable by Gold data products, analytics and AI services.
-- **Usage**: Gold models, analytics views and AI agents consume Silver entities as authoritative inputs for analysis, retrieval and reasoning.
+- **Silver layer responsibility**: Provide canonical, normalized and lineage-driven logical entities that represent payments, messages, events, parties, accounts, mandates, batches, cancellations, and resolution workflows.
+- **Enterprise canonical payment representation**: Normalize ISO 20022 and operational feeds into consistent logical records usable by Gold data products, analytics, and AI services.
+- **Usage**: Gold models, analytics, and AI agents consume Silver entities as authoritative inputs for analysis, retrieval, and reasoning.
 
 ## Scope
 
 Silver covers:
-- ISO 20022-aligned payment domain modelling
-- Payment lifecycle events and consolidated event history
-- Payment lineage and provenance (raw → bronze → silver)
-- Investigation capability and evidence references
-- Relationship modelling for parties, accounts and mandates
+- ISO 20022 aligned payment domain modelling
+- Payment lifecycle event history and operational processing history
+- Payment status and reporting outputs
+- Cancellation and resolution workflows
+- Participant and account canonicalisation
+- Source lineage and payload audit traceability
 
 ## Silver Layer Responsibilities
 
 - **Standardisation**: Map and normalize source structures into canonical logical shapes and controlled vocabularies.
-- **Canonicalisation**: Derive domain semantics from message-level constructs.
-- **Data quality enforcement**: Apply logical quality rules and report metrics for acceptance.
-- **Lineage preservation**: Maintain pointers to Raw Payload Audit and Bronze artifacts to enable traceability.
-- **Auditability**: Ensure every Silver record includes ingestion metadata for compliance and forensic review.
+- **Canonicalisation**: Derive enterprise payment semantics from ISO 20022 messages and operational platform events.
+- **Data quality enforcement**: Apply logical quality rules and report acceptance metrics.
+- **Lineage preservation**: Maintain immutable payload audit evidence and source traceability from raw payload to Silver.
+- **Auditability**: Ensure every Silver entity includes ingestion and lineage metadata for compliance and forensic review.
+
+## Source Lineage and Canonicalisation
+
+The Silver lineage flow is anchored on immutable payload audit evidence, ISO 20022 messages, interpreted payment information, and the canonical transaction entity.
+
+```text
+slv_payment_rawpayload_audit
+        |
+        v
+slv_payment_messages
+        |
+        v
+slv_payment_information
+        |
+        v
+slv_payments_transactions
+```
+
+- `slv_payment_rawpayload_audit` preserves immutable original ISO 20022 payload evidence and ingestion metadata.
+- `slv_payment_messages` represents ISO 20022 message instances parsed from source feeds.
+- `slv_payment_information` represents interpreted payment instruction and information blocks derived from those messages.
+- `slv_payments_transactions` is the canonical enterprise payment transaction.
 
 ## Entity Relationship Model
 
-The Silver model is transaction-centric. The central Silver anchor entity is `slv_payment_transactions`. All other Silver entities connect through explicit PK/FK relationships, with transaction identity preserved as the heart of the Silver canonical layer.
-
-```mermaid
-erDiagram
-    slv_payment_rawpayload_audit ||--o{ slv_payment_messages : raw_payload_audit_id
-    slv_payment_rawpayload_audit ||--o{ slv_payment_batch : raw_payload_audit_id
-    slv_payment_messages ||--o{ slv_payment_transactions : message_id
-    slv_payment_transactions ||--o{ slv_payment_lifecycle_event : transaction_id
-    slv_payment_transactions ||--o{ slv_payment_status : transaction_id
-    slv_payment_status ||--o{ slv_payment_report : status_id
-    slv_payment_transactions ||--o{ slv_payment_cancellations : transaction_id
-    slv_payment_cancellations ||--o{ slv_payment_resolution : cancellation_id
-    slv_payment_transactions ||--o{ slv_payment_information : payment_information_id
-    slv_payment_transactions ||--o{ slv_payment_batch : batch_id
-    slv_payment_transactions ||--o{ slv_payment_party : party_id
-    slv_payment_party ||--o{ slv_payment_party_address : party_id
-    slv_payment_party ||--o{ slv_payment_account : party_id
-    slv_payment_account ||--o{ slv_payment_mandate : account_id
-```
-
-## Payment Core Entities (slv_*)
-
-Each entity below includes: Grain, Primary Key, Foreign Keys, Business Purpose, Relationship description, ISO 20022 Alignment, and Lineage.
-
-### slv_payment_transactions
-- **Grain:** One row per canonical payment transaction.
-- **Primary Key:** transaction_id
-- **Foreign Keys:**
-  - message_id → slv_payment_messages.message_id
-  - batch_id → slv_payment_batch.batch_id
-  - payment_information_id → slv_payment_information.payment_information_id
-  - raw_payload_audit_id → slv_payment_rawpayload_audit.raw_audit_id
-  - party_id → slv_payment_party.party_id
-  - account_id → slv_payment_account.account_id
-  - mandate_id → slv_payment_mandate.mandate_id
-- **Business Purpose:** Canonical payment transaction representation — the business transaction unit used for reconciliation, reporting and investigation.
-- **Relationship description:** Central anchor entity. Transactions provide canonical payment identity and link messages, status, lifecycle events, parties, accounts, batches and audit artifacts.
-- **ISO 20022 Alignment:** pain.001, pacs.008, pain.002 (status updates)
-- **Lineage:** Must reference raw_payload_audit ids and bronze source ids; preserve original identifiers and ingestion timestamps.
-
-### slv_payment_messages
-- **Grain:** One row per ingested payment message.
-- **Primary Key:** message_id
-- **Foreign Keys:**
-  - raw_payload_audit_id → slv_payment_rawpayload_audit.raw_audit_id
-- **Business Purpose:** Store logical representation and metadata for ISO 20022 messages ingested into the system.
-- **Relationship description:** Messages provide evidence and lineage for transactions and lifecycle events. A transaction may originate from one or multiple messages.
-- **ISO 20022 Alignment:** pain.*, pacs.*, camt.*
-- **Lineage:** Pointer to raw payload audit and bronze message artefacts.
-
-### slv_payment_information
-- **Grain:** One row per payment instruction block.
-- **Primary Key:** payment_information_id
-- **Foreign Keys:**
-  - message_id → slv_payment_messages.message_id
-- **Business Purpose:** Grouping of payment instructions and instruction-level context.
-- **Relationship description:** Provides instruction context for transactions, linking multiple payments to a common instruction block.
-- **ISO 20022 Alignment:** payment information blocks in pain.*
-- **Lineage:** Reference to originating message ids and raw payload audit.
-
-### slv_payment_batch
-- **Grain:** One row per payment batch or file.
-- **Primary Key:** batch_id
-- **Foreign Keys:**
-  - raw_payload_audit_id → slv_payment_rawpayload_audit.raw_audit_id
-- **Business Purpose:** Represent grouped payment processing units (file, clearing run, business batch).
-- **Relationship description:** Batch organizes transactions into processing groups and supports reconciliation.
-- **ISO 20022 Alignment:** file-level wrappers and transport metadata
-- **Lineage:** List of constituent raw message ids and bronze batch references.
-
-## Lifecycle and Status
-
-### slv_payment_lifecycle_event
-- **Grain:** One row per canonical lifecycle event for a transaction.
-- **Primary Key:** lifecycle_event_id
-- **Foreign Keys:**
-  - transaction_id → slv_payment_transactions.transaction_id
-  - message_id → slv_payment_messages.message_id
-- **Business Purpose:** Canonical event log capturing state transitions and processing actions for payments.
-- **Relationship description:** Lifecycle events provide immutable history for transactions and are traceable back to source messages.
-- **ISO 20022 Alignment:** pain.002, camt.029, camt.055 where events are represented
-- **Lineage:** Must include pointers to source lifecycle events and raw payload ids.
-
-There are multiple operational lifecycle sources:
-- `slv_cpo_plm_lifecycle_event` (CPO PLM operational domain)
-- `slv_vpm_pmn_lifecycle_event` (VPM/PMN operational domain)
-
-These source feeds are consolidated into the canonical Silver lifecycle entity:
-
-```text
-slv_payment_lifecycle_event = UNION ALL (
-  slv_cpo_plm_lifecycle_event
-  +
-  slv_vpm_pmn_lifecycle_event
-)
-```
-
-### slv_payment_status
-- **Grain:** One row per payment status observation.
-- **Primary Key:** status_id
-- **Foreign Keys:**
-  - transaction_id → slv_payment_transactions.transaction_id
-  - lifecycle_event_id → slv_payment_lifecycle_event.lifecycle_event_id
-  - message_id → slv_payment_messages.message_id
-- **Business Purpose:** Canonical payment status history capturing status changes and effective timestamps.
-- **Relationship description:** Status records document evolving payment state and link to transaction and lifecycle event history.
-- **ISO 20022 Alignment:** status reporting from pain.002 and related messages
-- **Lineage:** Source message and raw payload pointers.
-
-### slv_payment_report
-- **Grain:** One row per payment report or reconciliation artifact.
-- **Primary Key:** report_id
-- **Foreign Keys:**
-  - transaction_id → slv_payment_transactions.transaction_id
-  - status_id → slv_payment_status.status_id
-  - batch_id → slv_payment_batch.batch_id
-  - message_id → slv_payment_messages.message_id
-- **Business Purpose:** Stores reporting messages, statements and reconciliation artifacts.
-- **Relationship description:** Reports provide evidence and reconciliation context for transactions, status history and batches.
-- **ISO 20022 Alignment:** camt.* reporting messages
-- **Lineage:** Reference to source report payloads.
-
-## Party and Account Domain
-
-### slv_payment_party
-- **Grain:** One row per canonical party.
-- **Primary Key:** party_id
-- **Foreign Keys:** none
-- **Business Purpose:** Canonical representation of individuals, organisations and financial institutions participating in payments.
-- **Relationship description:** Parties anchor ownership and participation for accounts and transactions.
-- **ISO 20022 Alignment:** party elements in pain/pacs/camt
-- **Lineage:** Source claim references and confidence/merge provenance.
-
-### slv_payment_party_address
-- **Grain:** One row per party address.
-- **Primary Key:** address_id
-- **Foreign Keys:**
-  - party_id → slv_payment_party.party_id
-- **Business Purpose:** Address records for parties for compliance and routing.
-- **Relationship description:** Addresses support party identity and compliance use cases.
-- **ISO 20022 Alignment:** party/address segments
-- **Lineage:** Source occurrence references.
-
-### slv_payment_account
-- **Grain:** One row per canonical payment account.
-- **Primary Key:** account_id
-- **Foreign Keys:**
-  - party_id → slv_payment_party.party_id
-- **Business Purpose:** Canonical financial account references used in payments.
-- **Relationship description:** Accounts connect parties to transactions and mandates.
-- **ISO 20022 Alignment:** account elements in pain/pacs
-- **Lineage:** Source assertions and ingestion provenance.
-
-### slv_payment_mandate
-- **Grain:** One row per canonical mandate.
-- **Primary Key:** mandate_id
-- **Foreign Keys:**
-  - account_id → slv_payment_account.account_id
-- **Business Purpose:** Canonical representation of authorisations for payments (e.g., direct debit mandates).
-- **Relationship description:** Mandates authorize payments on behalf of account holders.
-- **ISO 20022 Alignment:** direct debit segments where present
-- **Lineage:** Original mandate evidence and change history.
-
-## Investigation and Resolution
-
-### slv_payment_cancellations
-- **Grain:** One row per payment cancellation event.
-- **Primary Key:** cancellation_id
-- **Foreign Keys:**
-  - transaction_id → slv_payment_transactions.transaction_id
-  - message_id → slv_payment_messages.message_id
-  - status_id → slv_payment_status.status_id
-- **Business Purpose:** Canonical capture of cancellation requests and outcomes.
-- **Relationship description:** Cancellation records link payment transactions, status history and source messages.
-- **ISO 20022 Alignment:** camt.055
-- **Lineage:** Link to originating cancellation message and raw payload.
-
-### slv_payment_resolution
-- **Grain:** One row per investigation resolution.
-- **Primary Key:** resolution_id
-- **Foreign Keys:**
-  - transaction_id → slv_payment_transactions.transaction_id
-  - cancellation_id → slv_payment_cancellations.cancellation_id
-  - lifecycle_event_id → slv_payment_lifecycle_event.lifecycle_event_id
-  - message_id → slv_payment_messages.message_id
-- **Business Purpose:** Canonical representation of investigation resolutions and outcomes.
-- **Relationship description:** Resolution records capture outcomes and link to cancellations, lifecycle events and transactions.
-- **ISO 20022 Alignment:** camt.029 and related reporting messages
-- **Lineage:** Pointer to evidence and raw payload.
-
-## Audit and Lineage
-
-### slv_payment_rawpayload_audit
-- **Grain:** One row per raw payload ingestion audit record.
-- **Primary Key:** raw_audit_id
-- **Foreign Keys:** none
-- **Business Purpose:** Immutable audit of ingested raw payloads and ingestion metadata.
-- **Relationship description:** Raw payload audit anchors lineage for Silver derivations and provides immutable source validation.
-- **ISO 20022 Alignment:** original message payloads (pain/pacs/camt)
-- **Lineage:** Provides the immutable anchor for Silver derivations.
-
-## Required Documentation For Every Entity
-
-Each Silver entity must include the following documentation fields (logical only):
-- **Business Purpose:** Why the entity exists.
-- **Grain:** The row uniqueness level.
-- **Primary Key:** The entity's PK.
-- **Foreign Keys:** References to related Silver entities.
-- **Relationship description:** How the entity connects within Silver.
-- **ISO 20022 Alignment:** Relevant message families (pain.*, pacs.*, camt.*).
-- **Lineage:** Relationship showing Raw → Bronze → Silver → Gold → AI consumption.
-
-## Required Diagrams
-
-### 1. Silver canonical domain ER diagram
-
-```mermaid
-erDiagram
-    slv_payment_rawpayload_audit ||--o{ slv_payment_messages : raw_payload_audit_id
-    slv_payment_rawpayload_audit ||--o{ slv_payment_batch : raw_payload_audit_id
-    slv_payment_messages ||--o{ slv_payment_transactions : message_id
-    slv_payment_transactions ||--o{ slv_payment_lifecycle_event : transaction_id
-    slv_payment_transactions ||--o{ slv_payment_status : transaction_id
-    slv_payment_status ||--o{ slv_payment_report : status_id
-    slv_payment_transactions ||--o{ slv_payment_cancellations : transaction_id
-    slv_payment_cancellations ||--o{ slv_payment_resolution : cancellation_id
-    slv_payment_transactions ||--o{ slv_payment_information : payment_information_id
-    slv_payment_transactions ||--o{ slv_payment_batch : batch_id
-    slv_payment_transactions ||--o{ slv_payment_party : party_id
-    slv_payment_party ||--o{ slv_payment_party_address : party_id
-    slv_payment_party ||--o{ slv_payment_account : party_id
-    slv_payment_account ||--o{ slv_payment_mandate : account_id
-```
-
-### 2. Payment lifecycle event consolidation diagram
+The Silver model is transaction-centric. The central anchor entity is `slv_payments_transactions`. All major business relationships connect directly to it.
 
 ```mermaid
 flowchart TB
-    A[slv_cpo_plm_lifecycle_event]
-    B[slv_vpm_pmn_lifecycle_event]
-    C[slv_payment_lifecycle_event]
+    audit[slv_payment_rawpayload_audit]
+    messages[slv_payment_messages]
+    info[slv_payment_information]
+    transactions[slv_payments_transactions]
+    party[slv_payment_party]
+    account[slv_payment_account]
+    mandate[slv_payment_mandate]
+    batch[slv_payment_batch]
+    status[slv_payment_status]
+    report[slv_payment_report]
+    cancellation[slv_payment_cancellations]
+    resolution[slv_payment_resolution]
+    lifecycle[slv_payment_lifecycle_event]
 
-    A --> C
-    B --> C
+    audit --> messages
+    messages --> info
+    info --> transactions
+    transactions --> party
+    transactions --> account
+    transactions --> mandate
+    transactions --> batch
+    transactions --> status
+    status --> report
+    transactions --> cancellation
+    cancellation --> resolution
+    lifecycle --> transactions
 ```
 
-### 3. Silver-to-Gold consumption flow
+## Entity Definitions
 
-```mermaid
-flowchart LR
-    RAW[Raw Payloads] --> BRONZE[Bronze (parsed/messages)] --> SILV[Silver Canonical Models]
-    SILV --> GOLD[Gold Dimensional Models / Data Products]
-    SILV --> AI[AI Consumption (Retrieval, Agents)]
+Each entity below includes: Purpose, Primary Key, Foreign Keys, Important business attributes, Relationships, and ISO 20022 source messages.
+
+### slv_payments_transactions
+- **Purpose**: Canonical enterprise payment transaction record used for reconciliation, reporting, investigation, and analytics.
+- **Primary Key**: transaction_id
+- **Foreign Keys**:
+  - message_id → slv_payment_messages.message_id
+  - payment_information_id → slv_payment_information.payment_information_id
+  - party_id → slv_payment_party.party_id
+  - account_id → slv_payment_account.account_id
+  - mandate_id → slv_payment_mandate.mandate_id
+  - batch_id → slv_payment_batch.batch_id
+  - raw_payload_audit_id → slv_payment_rawpayload_audit.raw_audit_id
+- **Important business attributes**: payment_reference, end_to_end_id, instruction_id, amount, currency, value_date, initiation_date, payment_purpose, payment_type, transaction_status_summary
+- **Relationships**: Central Silver anchor. Directly relates to party, account, mandate, batch, status, cancellations, lifecycle events, and source lineage entities.
+- **ISO 20022 source messages**: pain.001, pacs.008, pain.002 where payment identity is defined.
+
+### slv_payment_rawpayload_audit
+- **Purpose**: Preserve immutable original ISO 20022 payload evidence and ingestion metadata.
+- **Primary Key**: raw_audit_id
+- **Foreign Keys**: none
+- **Important business attributes**: ingestion_timestamp, source_system, checksum, storage_pointer, payload_type, file_reference
+- **Relationships**: Serves as the immutable source anchor for messages, information, and transaction lineage.
+- **ISO 20022 source messages**: Original payloads for pain.*, pacs.*, camt.*
+
+### slv_payment_messages
+- **Purpose**: Represent ISO 20022 message instances parsed from raw payloads.
+- **Primary Key**: message_id
+- **Foreign Keys**:
+  - raw_audit_id → slv_payment_rawpayload_audit.raw_audit_id
+- **Important business attributes**: message_type, message_identifier, creation_timestamp, sender, receiver, message_reference, source_system
+- **Relationships**: Messages feed payment information and are evidence for canonical transactions.
+- **ISO 20022 source messages**: pain.*, pacs.*, camt.*
+
+### slv_payment_information
+- **Purpose**: Represent interpreted payment information and instruction blocks derived from messages.
+- **Primary Key**: payment_information_id
+- **Foreign Keys**:
+  - message_id → slv_payment_messages.message_id
+- **Important business attributes**: instruction_id, payment_information_type, instruction_timestamp, payment_method, payment_scheme
+- **Relationships**: Provides interpreted payment context for canonical transactions.
+- **ISO 20022 source messages**: payment information blocks from pain.*
+
+### slv_payment_party
+- **Purpose**: Canonical representation of payment participants such as debtor, creditor, or financial institutions.
+- **Primary Key**: party_id
+- **Foreign Keys**: none
+- **Important business attributes**: party_name, party_type, legal_identifier, roles, country
+- **Relationships**: Directly related to canonical transactions. Represents participant identity in the transaction.
+- **ISO 20022 source messages**: Debtor, creditor, and party elements in pain.*, pacs.*, camt.*
+
+### slv_payment_party_address
+- **Purpose**: Canonical party address information for compliance and routing.
+- **Primary Key**: address_id
+- **Foreign Keys**:
+  - party_id → slv_payment_party.party_id
+- **Important business attributes**: address_lines, city, region, country, postal_code, address_type
+- **Relationships**: Linked directly to party records, not to transactions.
+- **ISO 20022 source messages**: party address segments in pain.*, pacs.*, camt.*
+
+### slv_payment_account
+- **Purpose**: Canonical financial account reference used in payments.
+- **Primary Key**: account_id
+- **Foreign Keys**: none
+- **Important business attributes**: iban, account_number, account_type, currency, bank_identifier, account_status
+- **Relationships**: Directly related to canonical transactions. Represents the account context for the transaction.
+- **ISO 20022 source messages**: DebtorAgent/CreditorAgent and account elements in pain.*, pacs.*
+
+### slv_payment_mandate
+- **Purpose**: Canonical representation of payment authorisations and mandates.
+- **Primary Key**: mandate_id
+- **Foreign Keys**: none
+- **Important business attributes**: mandate_reference, creditor_id, debtor_id, mandate_status, effective_date, expiry_date
+- **Relationships**: Directly related to canonical transactions. Represents mandate context for the transaction.
+- **ISO 20022 source messages**: direct debit mandate segments in pain.*
+
+### slv_payment_batch
+- **Purpose**: Represent grouped payment processing units such as files or business batches.
+- **Primary Key**: batch_id
+- **Foreign Keys**: none
+- **Important business attributes**: batch_reference, file_name, origin_system, processing_window, batch_status
+- **Relationships**: Directly related to canonical transactions. Supports reconciliation and grouping.
+- **ISO 20022 source messages**: file-level and batch wrapper elements.
+
+### slv_payment_lifecycle_event
+- **Purpose**: Canonical record of internal technical processing history for payments.
+- **Primary Key**: lifecycle_event_id
+- **Foreign Keys**:
+  - transaction_id → slv_payments_transactions.transaction_id
+- **Important business attributes**: event_type, event_timestamp, source_system, technical_status, source_event_id, processing_step
+- **Relationships**: Captures technical processing history from CPO/PLM and VPM/PMN platforms for canonical transactions.
+- **ISO 20022 source messages**: Typically not directly ISO 20022; aligns with technical processing platforms and internal event feeds.
+
+### slv_payment_status
+- **Purpose**: Canonical business payment status history.
+- **Primary Key**: status_id
+- **Foreign Keys**:
+  - transaction_id → slv_payments_transactions.transaction_id
+- **Important business attributes**: status_code, status_reason, effective_timestamp, status_source, status_scope
+- **Relationships**: Represents business payment status linked to canonical transactions.
+- **ISO 20022 source messages**: pain.002, pacs status messages where applicable
+
+### slv_payment_report
+- **Purpose**: Canonical representation of reporting outputs and reconciliation messages.
+- **Primary Key**: report_id
+- **Foreign Keys**:
+  - status_id → slv_payment_status.status_id
+- **Important business attributes**: report_type, report_timestamp, reconciliation_status, report_reference
+- **Relationships**: Represents reporting outputs created from payment status and transaction context.
+- **ISO 20022 source messages**: camt reporting messages and status-related reporting outputs
+
+### slv_payment_cancellations
+- **Purpose**: Canonical capture of cancellation requests and outcomes.
+- **Primary Key**: cancellation_id
+- **Foreign Keys**:
+  - transaction_id → slv_payments_transactions.transaction_id
+- **Important business attributes**: cancellation_timestamp, cancellation_reason, cancellation_status, source_reference
+- **Relationships**: Captures cancellations linked to canonical transactions and feeds resolution workflows.
+- **ISO 20022 source messages**: camt.055 and other cancellation-related messages
+
+### slv_payment_resolution
+- **Purpose**: Canonical representation of investigation resolutions and outcomes.
+- **Primary Key**: resolution_id
+- **Foreign Keys**:
+  - cancellation_id → slv_payment_cancellations.cancellation_id
+- **Important business attributes**: resolution_status, resolution_timestamp, resolution_notes, assigned_owner
+- **Relationships**: Represents the outcome of cancellation resolution workflows.
+- **ISO 20022 source messages**: camt.029 and related resolution reporting messages
+
+## Lifecycle Event Source Consolidation
+
+Internal lifecycle events are consolidated from two platform sources into the canonical Silver lifecycle entity:
+
+```text
+slv_cpo_plm_lifecycle_event
+              |
+              |
+           UNION ALL
+              |
+              v
+slv_payment_lifecycle_event
+              ^
+              |
+           UNION ALL
+              |
+slv_vpm_pmn_lifecycle_event
 ```
 
----
+- `slv_payment_lifecycle_event` provides technical processing history from CPO/PLM and VPM/PMN platforms.
+- These lifecycle events attach to canonical transactions, not to business payment status.
 
-Notes:
-- Silver is the trusted enterprise payment domain. Gold is analytics. AI consumes governed Silver and Gold. LLMs are not the source of truth.
-- This document defines logical Silver entities and lineage requirements only — no SQL, Iceberg tables, dbt models or other implementation artifacts are included.
+## Approved Silver Architectural Rules
+
+- The Silver anchor entity is `slv_payments_transactions`. There is no `slv_payment` entity.
+- All major business relationships anchor around `slv_payments_transactions`.
+- `slv_payment_lifecycle_event` represents internal technical processing history, not business payment status.
+- `slv_payment_status` represents business payment status, and `slv_payment_report` represents reporting outputs.
+- Cancellation requests create resolution workflows: `slv_payments_transactions -> slv_payment_cancellations -> slv_payment_resolution`.
+- `slv_payment_rawpayload_audit` preserves immutable payload evidence and supports lineage into messages, payment information, and transactions.
+
+## Notes
+
+- ISO 20022 payments contain debtor, creditor, account, and mandate relationships. In Silver, these relationships are modeled by direct links from `slv_payments_transactions` to `slv_payment_party`, `slv_payment_account`, `slv_payment_mandate`, and `slv_payment_batch`.
+- The lifecycle event model consolidates technical events from CPO/PLM and VPM/PMN into `slv_payment_lifecycle_event`, which attaches to canonical transactions rather than representing business status.
+- This document remains a logical Silver canonical model only. It does not define SQL, physical Iceberg tables, or physical implementation artifacts.
