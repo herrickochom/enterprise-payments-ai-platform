@@ -89,8 +89,8 @@ Operational considerations
 - Define owners for datasets and ADRs; establish CI/CD for dbt models and data pipelines; instrument monitoring, observability and quality alerting; schedule regular reviews of model drift and retrieval quality.
 
 ## Future ADRs
-- ADR-002: Lakehouse Architecture (MinIO + Iceberg)
-- ADR-003: Canonical Payment Domain Model
+- ADR-002: Canonical Payment Domain Model
+- ADR-003: Lakehouse Architecture (MinIO + Iceberg)
 - ADR-004: Gold Dimensional Modelling Strategy
 - ADR-005: Data Governance and Data Quality
 - ADR-006: DLP and Security Architecture

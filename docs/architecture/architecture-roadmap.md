@@ -22,8 +22,8 @@ Summary (principles and layers)
 -**Architecture Artefacts**
 - **Architecture Decision Records (ADR)**: formalise architectural choices, trade-offs, and owners. ADRs follow a controlled numbering strategy to ensure governance and traceability:
   - **ADR-001**: Enterprise Payments AI Platform Architecture
-  - **ADR-002**: Lakehouse Architecture (MinIO + Iceberg)
-  - **ADR-003**: Canonical Payment Domain Model
+  - **ADR-002**: Canonical Payment Domain Model
+  - **ADR-003**: Lakehouse Architecture (MinIO + Iceberg)
   - **ADR-004**: Gold Dimensional Modelling Strategy
   - **ADR-005**: Data Governance and Data Quality Framework
   - **ADR-006**: DLP, PII Protection and Security Architecture

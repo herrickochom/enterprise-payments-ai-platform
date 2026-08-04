@@ -42,24 +42,24 @@ slv_payment_messages
 slv_payment_information
         |
         v
-slv_payments_transactions
+slv_payment_transactions
 ```
 
 - `slv_payment_rawpayload_audit` preserves immutable original ISO 20022 payload evidence and ingestion metadata.
 - `slv_payment_messages` represents ISO 20022 message instances parsed from source feeds.
 - `slv_payment_information` represents interpreted payment instruction and information blocks derived from those messages.
-- `slv_payments_transactions` is the canonical enterprise payment transaction.
+- `slv_payment_transactions` is the canonical enterprise payment transaction.
 
 ## Entity Relationship Model
 
-The Silver model is transaction-centric. The central anchor entity is `slv_payments_transactions`. All major business relationships connect directly to it.
+The Silver model is transaction-centric. The central anchor entity is `slv_payment_transactions`. All major business relationships connect directly to it.
 
 ```mermaid
 flowchart TB
     audit[slv_payment_rawpayload_audit]
     messages[slv_payment_messages]
     info[slv_payment_information]
-    transactions[slv_payments_transactions]
+    transactions[slv_payment_transactions]
     party[slv_payment_party]
     account[slv_payment_account]
     mandate[slv_payment_mandate]
@@ -84,11 +84,34 @@ flowchart TB
     lifecycle --> transactions
 ```
 
+## Lookup Table Mapping
+
+The Silver model uses canonical entities prefixed with `slv_`. When mapping from a JSON-based canonical intake, use lookup-table names for the source-side objects and `pain.001.001.09` target elements.
+
+- `message` → `GrpHdr`
+- `payment_information` → `PmtInf`
+- `transactions` → `CdtTrfTxInf`
+- `parties` → party elements (`InitgPty`, `Dbtr`, `Cdtr`, `DbtrAgt`, `CdtrAgt`, `UltmtDbtr`, `UltmtCdtr`)
+- `accounts` → `DbtrAcct`, `CdtrAcct`
+- `addresses` → `*.PstlAdr`
+- `remittance` → `CdtTrfTxInf.RmtInf`
+- `regulatory_reporting` → `CdtTrfTxInf.RgltryRptg`
+
+## Silver Table Name Glossary
+
+- `slv_payment_transactions`
+- `slv_payment_party`
+- `slv_payment_account`
+- `slv_payment_party_address`
+- `slv_payment_rawpayload_audit`
+- `slv_payment_messages`
+- `slv_payment_information`
+
 ## Entity Definitions
 
 Each entity below includes: Purpose, Primary Key, Foreign Keys, Important business attributes, Relationships, and ISO 20022 source messages.
 
-### slv_payments_transactions
+### slv_payment_transactions
 - **Purpose**: Canonical enterprise payment transaction record used for reconciliation, reporting, investigation, and analytics.
 - **Primary Key**: transaction_id
 - **Foreign Keys**:
@@ -174,7 +197,7 @@ Each entity below includes: Purpose, Primary Key, Foreign Keys, Important busine
 - **Purpose**: Canonical record of internal technical processing history for payments.
 - **Primary Key**: lifecycle_event_id
 - **Foreign Keys**:
-  - transaction_id → slv_payments_transactions.transaction_id
+  - transaction_id → slv_payment_transactions.transaction_id
 - **Important business attributes**: event_type, event_timestamp, source_system, technical_status, source_event_id, processing_step
 - **Relationships**: Captures technical processing history from CPO/PLM and VPM/PMN platforms for canonical transactions.
 - **ISO 20022 source messages**: Typically not directly ISO 20022; aligns with technical processing platforms and internal event feeds.
@@ -183,7 +206,7 @@ Each entity below includes: Purpose, Primary Key, Foreign Keys, Important busine
 - **Purpose**: Canonical business payment status history.
 - **Primary Key**: status_id
 - **Foreign Keys**:
-  - transaction_id → slv_payments_transactions.transaction_id
+  - transaction_id → slv_payment_transactions.transaction_id
 - **Important business attributes**: status_code, status_reason, effective_timestamp, status_source, status_scope
 - **Relationships**: Represents business payment status linked to canonical transactions.
 - **ISO 20022 source messages**: pain.002, pacs status messages where applicable
@@ -201,7 +224,7 @@ Each entity below includes: Purpose, Primary Key, Foreign Keys, Important busine
 - **Purpose**: Canonical capture of cancellation requests and outcomes.
 - **Primary Key**: cancellation_id
 - **Foreign Keys**:
-  - transaction_id → slv_payments_transactions.transaction_id
+  - transaction_id → slv_payment_transactions.transaction_id
 - **Important business attributes**: cancellation_timestamp, cancellation_reason, cancellation_status, source_reference
 - **Relationships**: Captures cancellations linked to canonical transactions and feeds resolution workflows.
 - **ISO 20022 source messages**: camt.055 and other cancellation-related messages
@@ -239,15 +262,15 @@ slv_vpm_pmn_lifecycle_event
 
 ## Approved Silver Architectural Rules
 
-- The Silver anchor entity is `slv_payments_transactions`. There is no `slv_payment` entity.
-- All major business relationships anchor around `slv_payments_transactions`.
+- The Silver anchor entity is `slv_payment_transactions`. There is no `slv_payment` entity.
+- All major business relationships anchor around `slv_payment_transactions`.
 - `slv_payment_lifecycle_event` represents internal technical processing history, not business payment status.
 - `slv_payment_status` represents business payment status, and `slv_payment_report` represents reporting outputs.
-- Cancellation requests create resolution workflows: `slv_payments_transactions -> slv_payment_cancellations -> slv_payment_resolution`.
+- Cancellation requests create resolution workflows: `slv_payment_transactions -> slv_payment_cancellations -> slv_payment_resolution`.
 - `slv_payment_rawpayload_audit` preserves immutable payload evidence and supports lineage into messages, payment information, and transactions.
 
 ## Notes
 
-- ISO 20022 payments contain debtor, creditor, account, and mandate relationships. In Silver, these relationships are modeled by direct links from `slv_payments_transactions` to `slv_payment_party`, `slv_payment_account`, `slv_payment_mandate`, and `slv_payment_batch`.
+- ISO 20022 payments contain debtor, creditor, account, and mandate relationships. In Silver, these relationships are modeled by direct links from `slv_payment_transactions` to `slv_payment_party`, `slv_payment_account`, `slv_payment_mandate`, and `slv_payment_batch`.
 - The lifecycle event model consolidates technical events from CPO/PLM and VPM/PMN into `slv_payment_lifecycle_event`, which attaches to canonical transactions rather than representing business status.
 - This document remains a logical Silver canonical model only. It does not define SQL, physical Iceberg tables, or physical implementation artifacts.

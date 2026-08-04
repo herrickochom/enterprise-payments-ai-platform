@@ -415,10 +415,10 @@ ADR must contain:
 
 Examples:
 
-ADR-001 Enterprise Architecture
-ADR-002 Canonical Payment Model
-ADR-003 Lakehouse Design
-ADR-004 AI Knowledge Architecture
+ADR-001 Enterprise Payments AI Platform Architecture
+ADR-002 Canonical Payment Domain Model
+ADR-003 Lakehouse Architecture
+ADR-004 Gold Dimensional Modelling Strategy
 
 # Engineering Behaviour
 
