@@ -1,0 +1,58 @@
+# ============================================================================
+# Enterprise Payments AI Platform - .gitignore
+# ============================================================================
+
+# --- Secrets / environment ----------------------------------------------------
+.env
+.env.*
+!.env.example
+infrastructure/docker/.env
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual environments ----------------------------------------------------
+.venv/
+venv/
+env/
+
+# --- Testing / coverage -----------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# --- IDE ---------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- dbt ---------------------------------------------------------------------
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# --- OS ----------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# --- Local data outputs ------------------------------------------------------
+data/processed/
+data/output/

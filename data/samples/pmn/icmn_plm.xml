@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IcmnPlm xmlns="urn:epap:plm:icmn:v1">
+
+    <PlatformHeaders>
+        <XCustomer>CUST-SYN-004</XCustomer>
+        <XChannelCustomerSaId>SA-SYN-004</XChannelCustomerSaId>
+        <XChannelCustomerDeviceId>DEV-SYN-004</XChannelCustomerDeviceId>
+        <XChannelCustomerIp>192.0.2.40</XChannelCustomerIp>
+        <XChannelCustomerSessionId>SESS-SYN-004</XChannelCustomerSessionId>
+        <XChannelCustomerAuthStrength>MEDIUM</XChannelCustomerAuthStrength>
+        <XChannel>INTERNAL</XChannel>
+        <XSourceSystem>TREASURY_ENGINE</XSourceSystem>
+        <XUserId>USER-SYN-004</XUserId>
+        <XTenantId>TENANT-SYN-UK</XTenantId>
+        <XTraceId>TRACE-SYN-ICMN-0001</XTraceId>
+        <XSpanId>SPAN-SYN-ICMN-0001</XSpanId>
+        <XIngestionPipelineVersion>ingest-v3.4</XIngestionPipelineVersion>
+    </PlatformHeaders>
+
+    <Icmn>
+        <IcmnId>ICMN-SYN-2026-0001</IcmnId>
+        <IcmnVersion>1.0</IcmnVersion>
+        <IcmnType>TREASURY_MOVEMENT</IcmnType>
+
+        <InternalLedger>
+            <LedgerId>LEDGER-SYN-UK</LedgerId>
+            <DebitAccountId>LEDGER-ACC-SYN-POOL</DebitAccountId>
+            <CreditAccountId>LEDGER-ACC-SYN-LIQ</CreditAccountId>
+            <Currency>GBP</Currency>
+            <Amount>50000.00</Amount>
+        </InternalLedger>
+
+        <PlatformMetadata>
+            <TenantId>TENANT-SYN-UK</TenantId>
+            <TraceId>TRACE-SYN-ICMN-0001</TraceId>
+            <SpanId>SPAN-SYN-ICMN-0001</SpanId>
+            <SchemaVersion>icmn-plm-v1.0</SchemaVersion>
+        </PlatformMetadata>
+    </Icmn>
+
+</IcmnPlm>

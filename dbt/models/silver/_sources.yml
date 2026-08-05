@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw ingestion tables for ISO 20022 payment payloads.
+    schema: raw
+    tables:
+      - name: payment_payload_audit
+        description: Immutable payload audit evidence for each ingested payment file.
+      - name: payment_messages
+        description: Parsed ISO 20022 message instances.
+      - name: payment_information
+        description: Interpreted payment information blocks.
+      - name: payment_transactions
+        description: Canonical transaction-level payment facts.

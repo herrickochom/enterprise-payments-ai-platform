@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09">
+    <CstmrCdtTrfInitn>
+
+        <!-- Group Header -->
+        <GrpHdr>
+            <MsgId>UK-EPAP-PAIN001-20260803-000001</MsgId>
+            <CreDtTm>2026-08-03T23:20:00</CreDtTm>
+            <NbOfTxs>6</NbOfTxs>
+            <CtrlSum>98765.43</CtrlSum>
+
+            <InitgPty>
+                <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                <Id>
+                    <OrgId>
+                        <AnyBIC>NWBKGB2L</AnyBIC>
+                        <LEI>5493001KJTIIGC8Y1R12</LEI>
+                        <Othr>
+                            <Id>EPAP-UK-INITG-001</Id>
+                            <SchmeNm>
+                                <Cd>TXID</Cd>
+                                <Prtry>UK-CORP-ID</Prtry>
+                            </SchmeNm>
+                            <Issr>EPAP-ID-REGISTRY</Issr>
+                        </Othr>
+                    </OrgId>
+                </Id>
+                <CtctDtls>
+                    <Nm>Payments Operations Team</Nm>
+                    <PhneNb>+44-20-7000-0000</PhneNb>
+                    <MobNb>+44-7700-900000</MobNb>
+                    <FaxNb>+44-20-7000-0001</FaxNb>
+                    <EmailAdr>payments.ops@epap.example.com</EmailAdr>
+                    <Othr>Operations Contact</Othr>
+                </CtctDtls>
+            </InitgPty>
+
+            <Authstn>
+                <Cd>AUTH</Cd>
+                <Nm>Authorised by EPAP Payments Orchestrator</Nm>
+            </Authstn>
+
+            <BtchBookg>false</BtchBookg>
+            <NbOfTxs>6</NbOfTxs>
+            <CtrlSum>98765.43</CtrlSum>
+        </GrpHdr>
+
+        <!-- Payment Information 1: FPS Payroll -->
+        <PmtInf>
+            <PmtInfId>PMTINF-UK-FPS-20260803-01</PmtInfId>
+            <PmtMtd>TRF</PmtMtd>
+            <BtchBookg>false</BtchBookg>
+            <NbOfTxs>3</NbOfTxs>
+            <CtrlSum>45678.90</CtrlSum>
+
+            <PmtTpInf>
+                <InstrPrty>NORM</InstrPrty>
+                <SvcLvl>
+                    <Cd>SEPA</Cd>
+                </SvcLvl>
+                <SvcLvl>
+                    <Prtry>UK-CT</Prtry>
+                </SvcLvl>
+                <LclInstrm>
+                    <Cd>INST</Cd>
+                    <Prtry>FPS</Prtry>
+                </LclInstrm>
+                <CtgyPurp>
+                    <Cd>SALA</Cd>
+                    <Prtry>PAYROLL</Prtry>
+                </CtgyPurp>
+            </PmtTpInf>
+
+            <ReqdExctnDt>2026-08-04</ReqdExctnDt>
+
+            <!-- Debtor -->
+            <Dbtr>
+                <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                <PstlAdr>
+                    <AdrTp>HOME</AdrTp>
+                    <Dept>Payments</Dept>
+                    <SubDept>Operations</SubDept>
+                    <StrtNm>1 Data Platform Way</StrtNm>
+                    <BldgNb>10</BldgNb>
+                    <PstCd>EC2A 1AA</PstCd>
+                    <TwnNm>London</TwnNm>
+                    <CtrySubDvsn>London</CtrySubDvsn>
+                    <Ctry>GB</Ctry>
+                    <AdrLine>Enterprise Payments AI Platform Ltd</AdrLine>
+                    <AdrLine>1 Data Platform Way</AdrLine>
+                </PstlAdr>
+                <Id>
+                    <OrgId>
+                        <AnyBIC>NWBKGB2L</AnyBIC>
+                        <Othr>
+                            <Id>EPAP-UK-DEBTOR-001</Id>
+                            <SchmeNm>
+                                <Prtry>UK-DEBTOR-ID</Prtry>
+                            </SchmeNm>
+                            <Issr>EPAP-ID-REGISTRY</Issr>
+                        </Othr>
+                    </OrgId>
+                </Id>
+                <CtctDtls>
+                    <Nm>Corporate Treasury</Nm>
+                    <PhneNb>+44-20-7000-1000</PhneNb>
+                    <EmailAdr>treasury@epap.example.com</EmailAdr>
+                </CtctDtls>
+            </Dbtr>
+
+            <!-- Debtor Account -->
+            <DbtrAcct>
+                <Id>
+                    <IBAN>GB29NWBK60161331926819</IBAN>
+                    <Othr>
+                        <Id>60161331926819</Id>
+                        <SchmeNm>
+                            <Prtry>UK-SORT-ACC</Prtry>
+                        </SchmeNm>
+                    </Othr>
+                </Id>
+                <Tp>
+                    <Cd>SVGS</Cd>
+                    <Prtry>CORP-CURRENT</Prtry>
+                </Tp>
+                <Ccy>GBP</Ccy>
+                <Nm>EPAP Main Settlement Account</Nm>
+            </DbtrAcct>
+
+            <!-- Debtor Agent -->
+            <DbtrAgt>
+                <FinInstnId>
+                    <BIC>NWBKGB2L</BIC>
+                    <Nm>NatWest Bank Plc</Nm>
+                    <PstlAdr>
+                        <StrtNm>250 Bishopsgate</StrtNm>
+                        <TwnNm>London</TwnNm>
+                        <PstCd>EC2M 4AA</PstCd>
+                        <Ctry>GB</Ctry>
+                    </PstlAdr>
+                    <Othr>
+                        <Id>NWBK-UK-001</Id>
+                        <SchmeNm>
+                            <Prtry>UK-BANK-ID</Prtry>
+                        </SchmeNm>
+                    </Othr>
+                </FinInstnId>
+                <BrnchId>
+                    <Id>601613</Id>
+                    <Nm>London Tech Branch</Nm>
+                </BrnchId>
+            </DbtrAgt>
+
+            <!-- Charge Bearer -->
+            <ChrgBr>SLEV</ChrgBr>
+
+            <!-- RltdRmtInf (location of remittance) -->
+            <RltdRmtInf>
+                <RmtLctnMtd>EMAIL</RmtLctnMtd>
+                <RmtLctnElctrncAdr>remit@epap.example.com</RmtLctnElctrncAdr>
+                <RmtLctnPstlAdr>
+                    <StrtNm>1 Data Platform Way</StrtNm>
+                    <TwnNm>London</TwnNm>
+                    <PstCd>EC2A 1AA</PstCd>
+                    <Ctry>GB</Ctry>
+                </RmtLctnPstlAdr>
+            </RltdRmtInf>
+
+            <!-- Transaction 1: FPS Salary -->
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>UK-FPS-20260803-0001</InstrId>
+                    <EndToEndId>E2E-UK-FPS-20260803-0001</EndToEndId>
+                    <TxId>TX-UK-FPS-0001</TxId>
+                </PmtId>
+
+                <PmtTpInf>
+                    <InstrPrty>NORM</InstrPrty>
+                    <SvcLvl>
+                        <Cd>SEPA</Cd>
+                    </SvcLvl>
+                    <LclInstrm>
+                        <Prtry>FPS</Prtry>
+                    </LclInstrm>
+                    <CtgyPurp>
+                        <Cd>SALA</Cd>
+                    </CtgyPurp>
+                </PmtTpInf>
+
+                <Amt>
+                    <InstdAmt Ccy="GBP">15000.00</InstdAmt>
+                </Amt>
+
+                <ChrgBr>SLEV</ChrgBr>
+
+                <!-- Ultimate Debtor -->
+                <UltmtDbtr>
+                    <Nm>EPAP Payroll Funding Entity</Nm>
+                    <Id>
+                        <OrgId>
+                            <Othr>
+                                <Id>EPAP-ULT-DBTR-001</Id>
+                                <SchmeNm>
+                                    <Prtry>UK-ULT-DBTR</Prtry>
+                                </SchmeNm>
+                            </Othr>
+                        </OrgId>
+                    </Id>
+                </UltmtDbtr>
+
+                <!-- Debtor Agent (transaction-level override) -->
+                <DbtrAgt>
+                    <FinInstnId>
+                        <BIC>NWBKGB2L</BIC>
+                    </FinInstnId>
+                </DbtrAgt>
+
+                <!-- Creditor Agent -->
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>BARCGB22</BIC>
+                        <Nm>Barclays Bank UK Plc</Nm>
+                        <PstlAdr>
+                            <StrtNm>1 Churchill Place</StrtNm>
+                            <TwnNm>London</TwnNm>
+                            <PstCd>E14 5HP</PstCd>
+                            <Ctry>GB</Ctry>
+                        </PstlAdr>
+                    </FinInstnId>
+                    <BrnchId>
+                        <Id>202015</Id>
+                        <Nm>London Canary Wharf Branch</Nm>
+                    </BrnchId>
+                </CdtrAgt>
+
+                <!-- Creditor -->
+                <Cdtr>
+                    <Nm>Herrick Ochom</Nm>
+                    <PstlAdr>
+                        <AdrTp>HOME</AdrTp>
+                        <StrtNm>Modern Residential Project Street</StrtNm>
+                        <BldgNb>5</BldgNb>
+                        <PstCd>SW1A 1AA</PstCd>
+                        <TwnNm>London</TwnNm>
+                        <Ctry>GB</Ctry>
+                        <AdrLine>Herrick Ochom</AdrLine>
+                        <AdrLine>5 Modern Residential Project Street</AdrLine>
+                    </PstlAdr>
+                    <Id>
+                        <PrvtId>
+                            <DtAndPlcOfBirth>
+                                <BirthDt>1985-06-15</BirthDt>
+                                <CityOfBirth>Kampala</CityOfBirth>
+                                <CtryOfBirth>UG</CtryOfBirth>
+                            </DtAndPlcOfBirth>
+                            <Othr>
+                                <Id>HERRICK-UK-PRVT-001</Id>
+                                <SchmeNm>
+                                    <Prtry>UK-PRVT-ID</Prtry>
+                                </SchmeNm>
+                                <Issr>EPAP-CUSTOMER-REGISTRY</Issr>
+                            </Othr>
+                        </PrvtId>
+                    </Id>
+                </Cdtr>
+
+                <!-- Creditor Account -->
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB33BUKB20201555555555</IBAN>
+                        <Othr>
+                            <Id>20201555555555</Id>
+                            <SchmeNm>
+                                <Prtry>UK-SORT-ACC</Prtry>
+                            </SchmeNm>
+                        </Othr>
+                    </Id>
+                    <Tp>
+                        <Cd>CACC</Cd>
+                    </Tp>
+                    <Ccy>GBP</Ccy>
+                    <Nm>Herrick Ochom Personal Account</Nm>
+                </CdtrAcct>
+
+                <!-- Ultimate Creditor -->
+                <UltmtCdtr>
+                    <Nm>Herrick Ochom</Nm>
+                </UltmtCdtr>
+
+                <!-- Purpose -->
+                <Purp>
+                    <Cd>SALA</Cd>
+                    <Prtry>Monthly Salary</Prtry>
+                </Purp>
+
+                <!-- Regulatory Reporting -->
+                <RgltryRptg>
+                    <DbtCdtRptgInd>DBIT</DbtCdtRptgInd>
+                    <Authrty>
+                        <Nm>UK-FCA</Nm>
+                        <Ctry>GB</Ctry>
+                    </Authrty>
+                    <Dtls>
+                        <Tp>
+                            <Cd>REG</Cd>
+                        </Tp>
+                        <Cd>PAYROLL</Cd>
+                        <Amt>
+                            <Amt Ccy="GBP">15000.00</Amt>
+                        </Amt>
+                        <Inf>Payroll payment under UK employment contract</Inf>
+                    </Dtls>
+                </RgltryRptg>
+
+                <!-- Remittance Information -->
+                <RmtInf>
+                    <Ustrd>Salary July 2026 - EPAP Payroll</Ustrd>
+                    <Ustrd>Employee ID: HERRICK-001</Ustrd>
+                    <Strd>
+                        <CdtrRefInf>
+                            <Tp>
+                                <CdOrPrtry>
+                                    <Cd>SCOR</Cd>
+                                </CdOrPrtry>
+                                <Issr>EPAP-PAYROLL</Issr>
+                            </Tp>
+                            <Ref>PAYROLL-2026-07-HERRICK</Ref>
+                        </CdtrRefInf>
+                        <AddtlRmtInf>UK PAYE compliant payroll remittance</AddtlRmtInf>
+                    </Strd>
+                </RmtInf>
+
+                <!-- Supplementary Data -->
+                <SplmtryData>
+                    <PlcAndNm>UK-FPS-EXT</PlcAndNm>
+                    <Envlp>
+                        <Any>
+                            <UKFpsExt xmlns="urn:epap:uk:fps:ext">
+                                <ProcessingWindow>2026-08-04T08:00:00</ProcessingWindow>
+                                <SchemeRef>FPS-2026-08-04-001</SchemeRef>
+                                <Channel>API</Channel>
+                            </UKFpsExt>
+                        </Any>
+                    </Envlp>
+                </SplmtryData>
+            </CdtTrfTxInf>
+
+            <!-- Transaction 2: FPS Supplier -->
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>UK-FPS-20260803-0002</InstrId>
+                    <EndToEndId>E2E-UK-FPS-20260803-0002</EndToEndId>
+                    <TxId>TX-UK-FPS-0002</TxId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="GBP">5000.50</InstdAmt>
+                </Amt>
+                <ChrgBr>SLEV</ChrgBr>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>LOYDGB2L</BIC>
+                        <Nm>Lloyds Bank Plc</Nm>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>UK Construction Supplier Ltd</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB12LOYD30949312345678</IBAN>
+                    </Id>
+                    <Ccy>GBP</Ccy>
+                </CdtrAcct>
+                <Purp>
+                    <Cd>SUPP</Cd>
+                    <Prtry>Construction Materials</Prtry>
+                </Purp>
+                <RmtInf>
+                    <Ustrd>Invoice INV-2026-0715-UKCONSTR</Ustrd>
+                </RmtInf>
+            </CdtTrfTxInf>
+
+            <!-- Transaction 3: FPS Cloud Subscription -->
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>UK-FPS-20260803-0003</InstrId>
+                    <EndToEndId>E2E-UK-FPS-20260803-0003</EndToEndId>
+                    <TxId>TX-UK-FPS-0003</TxId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="GBP">25678.40</InstdAmt>
+                </Amt>
+                <ChrgBr>SLEV</ChrgBr>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>HSBCGB2L</BIC>
+                        <Nm>HSBC UK Bank Plc</Nm>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>Cloud Data Services UK Ltd</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB55MIDL40051599999999</IBAN>
+                    </Id>
+                    <Ccy>GBP</Ccy>
+                </CdtrAcct>
+                <Purp>
+                    <Cd>SUPP</Cd>
+                    <Prtry>Cloud Platform Subscription</Prtry>
+                </Purp>
+                <RmtInf>
+                    <Ustrd>Subscription July 2026 - Enterprise Tier</Ustrd>
+                </RmtInf>
+            </CdtTrfTxInf>
+        </PmtInf>
+
+        <!-- Payment Information 2: CHAPS High-Value -->
+        <PmtInf>
+            <PmtInfId>PMTINF-UK-CHAPS-20260803-02</PmtInfId>
+            <PmtMtd>TRF</PmtMtd>
+            <BtchBookg>true</BtchBookg>
+            <NbOfTxs>2</NbOfTxs>
+            <CtrlSum>50000.00</CtrlSum>
+
+            <PmtTpInf>
+                <InstrPrty>HIGH</InstrPrty>
+                <SvcLvl>
+                    <Prtry>UK-CHAPS</Prtry>
+                </SvcLvl>
+                <LclInstrm>
+                    <Prtry>CHAPS</Prtry>
+                </LclInstrm>
+                <CtgyPurp>
+                    <Cd>TRAD</Cd>
+                    <Prtry>High Value Trade Settlement</Prtry>
+                </CtgyPurp>
+            </PmtTpInf>
+
+            <ReqdExctnDt>2026-08-04</ReqdExctnDt>
+
+            <Dbtr>
+                <Nm>Enterprise Payments AI Platform Ltd</Nm>
+            </Dbtr>
+
+            <DbtrAcct>
+                <Id>
+                    <IBAN>GB82NWBK60161312345678</IBAN>
+                </Id>
+                <Ccy>GBP</Ccy>
+                <Nm>EPAP High-Value Settlement Account</Nm>
+            </DbtrAcct>
+
+            <DbtrAgt>
+                <FinInstnId>
+                    <BIC>NWBKGB2L</BIC>
+                </FinInstnId>
+            </DbtrAgt>
+
+            <ChrgBr>DEBT</ChrgBr>
+
+            <!-- CHAPS Transaction 1 -->
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>UK-CHAPS-20260803-0001</InstrId>
+                    <EndToEndId>E2E-UK-CHAPS-20260803-0001</EndToEndId>
+                    <TxId>TX-UK-CHAPS-0001</TxId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="GBP">30000.00</InstdAmt>
+                </Amt>
+                <ChrgBr>DEBT</ChrgBr>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>BARCGB22</BIC>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>UK Real Estate Holdings Plc</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB33BUKB20201588888888</IBAN>
+                    </Id>
+                    <Ccy>GBP</Ccy>
+                </CdtrAcct>
+                <Purp>
+                    <Cd>TRAD</Cd>
+                    <Prtry>Property Acquisition Deposit</Prtry>
+                </Purp>
+                <RmtInf>
+                    <Ustrd>Property Deposit - Ref: PROP-2026-ACQ-01</Ustrd>
+                </RmtInf>
+            </CdtTrfTxInf>
+
+            <!-- CHAPS Transaction 2 -->
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>UK-CHAPS-20260803-0002</InstrId>
+                    <EndToEndId>E2E-UK-CHAPS-20260803-0002</EndToEndId>
+                    <TxId>TX-UK-CHAPS-0002</TxId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="GBP">20000.00</InstdAmt>
+                </Amt>
+                <ChrgBr>DEBT</ChrgBr>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>LOYDGB2L</BIC>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>UK Legal Services LLP</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB12LOYD30949377777777</IBAN>
+                    </Id>
+                    <Ccy>GBP</Ccy>
+                </CdtrAcct>
+                <Purp>
+                    <Cd>TRAD</Cd>
+                    <Prtry>Legal Fees</Prtry>
+                </Purp>
+                <RmtInf>
+                    <Ustrd>Legal Fees - Property Acquisition PROP-2026-ACQ-01</Ustrd>
+                </RmtInf>
+            </CdtTrfTxInf>
+        </PmtInf>
+
+        <!-- Payment Information 3: BACS Bulk -->
+        <PmtInf>
+            <PmtInfId>PMTINF-UK-BACS-20260803-03</PmtInfId>
+            <PmtMtd>TRF</PmtMtd>
+            <BtchBookg>true</BtchBookg>
+            <NbOfTxs>1</NbOfTxs>
+            <CtrlSum>3086.53</CtrlSum>
+
+            <PmtTpInf>
+                <InstrPrty>NORM</InstrPrty>
+                <SvcLvl>
+                    <Prtry>UK-BACS</Prtry>
+                </SvcLvl>
+                <LclInstrm>
+                    <Prtry>BACS</Prtry>
+                </LclInstrm>
+                <CtgyPurp>
+                    <Cd>SUPP</Cd>
+                    <Prtry>Bulk Supplier Settlement</Prtry>
+                </CtgyPurp>
+            </PmtTpInf>
+
+            <ReqdExctnDt>2026-08-05</ReqdExctnDt>
+
+            <Dbtr>
+                <Nm>Enterprise Payments AI Platform Ltd</Nm>
+            </Dbtr>
+
+            <DbtrAcct>
+                <Id>
+                    <IBAN>GB29NWBK60161344444444</IBAN>
+                </Id>
+                <Ccy>GBP</Ccy>
+                <Nm>EPAP BACS Settlement Account</Nm>
+            </DbtrAcct>
+
+            <DbtrAgt>
+                <FinInstnId>
+                    <BIC>NWBKGB2L</BIC>
+                </FinInstnId>
+            </DbtrAgt>
+
+            <ChrgBr>SLEV</ChrgBr>
+
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>UK-BACS-20260803-0001</InstrId>
+                    <EndToEndId>E2E-UK-BACS-20260803-0001</EndToEndId>
+                    <TxId>TX-UK-BACS-0001</TxId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="GBP">3086.53</InstdAmt>
+                </Amt>
+                <ChrgBr>SLEV</ChrgBr>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>HSBCGB2L</BIC>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>UK Misc Suppliers Pool</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB55MIDL40051533333333</IBAN>
+                    </Id>
+                    <Ccy>GBP</Ccy>
+                </CdtrAcct>
+                <Purp>
+                    <Cd>SUPP</Cd>
+                    <Prtry>Bulk Supplier Settlement</Prtry>
+                </Purp>
+                <RmtInf>
+                    <Ustrd>Bulk BACS Settlement Batch: BACS-2026-08-03-POOL</Ustrd>
+                    <Strd>
+                        <AddtlRmtInf>Contains multiple supplier invoices aggregated</AddtlRmtInf>
+                    </Strd>
+                </RmtInf>
+            </CdtTrfTxInf>
+        </PmtInf>
+
+    </CstmrCdtTrfInitn>
+</Document>

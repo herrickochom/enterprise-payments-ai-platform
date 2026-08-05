@@ -1,0 +1,15 @@
+# Enterprise Payments AI Platform - Ingestion dependencies
+# Python >= 3.11
+
+# S3-compatible object storage client (MinIO)
+minio==7.2.15
+
+# Configuration & data validation (python-dotenv >=1.2 required by dbt-core)
+python-dotenv==1.2.2
+pydantic==2.9.2
+
+# HTTP (transitive but pinned for reproducibility)
+requests==2.32.3
+
+# --- Test dependencies -------------------------------------------------------
+pytest==8.3.3

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PmnPlm xmlns="urn:epap:plm:pmn:v1">
+
+    <PlatformHeaders>
+        <XCustomer>CUST-SYN-005</XCustomer>
+        <XChannelCustomerSaId>SA-SYN-005</XChannelCustomerSaId>
+        <XChannelCustomerDeviceId>DEV-SYN-005</XChannelCustomerDeviceId>
+        <XChannelCustomerIp>192.0.2.50</XChannelCustomerIp>
+        <XChannelCustomerSessionId>SESS-SYN-005</XChannelCustomerSessionId>
+        <XChannelCustomerAuthStrength>STRONG</XChannelCustomerAuthStrength>
+        <XChannel>API</XChannel>
+        <XSourceSystem>ISO_MAPPER</XSourceSystem>
+        <XUserId>USER-SYN-005</XUserId>
+        <XTenantId>TENANT-SYN-UK</XTenantId>
+        <XTraceId>TRACE-SYN-PMN-0001</XTraceId>
+        <XSpanId>SPAN-SYN-PMN-0001</XSpanId>
+        <XIngestionPipelineVersion>ingest-v3.4</XIngestionPipelineVersion>
+    </PlatformHeaders>
+
+    <Pmn>
+        <PmnId>PMN-SYN-2026-0001</PmnId>
+        <PmnVersion>1.0</PmnVersion>
+        <PmnSource>CPO</PmnSource>
+        <PmnDirection>OUTBOUND</PmnDirection>
+
+        <CanonicalPayment>
+            <CpoId>CPO-SYN-2026-0001</CpoId>
+            <InstructionId>CPO-INSTR-SYN-0001</InstructionId>
+            <EndToEndId>E2E-SYN-0001</EndToEndId>
+            <Amount>
+                <Currency>GBP</Currency>
+                <Value>123.45</Value>
+            </Amount>
+        </CanonicalPayment>
+
+        <PlatformMetadata>
+            <TenantId>TENANT-SYN-UK</TenantId>
+            <TraceId>TRACE-SYN-PMN-0001</TraceId>
+            <SpanId>SPAN-SYN-PMN-0001</SpanId>
+            <SchemaVersion>pmn-plm-v1.0</SchemaVersion>
+        </PlatformMetadata>
+    </Pmn>
+
+</PmnPlm>

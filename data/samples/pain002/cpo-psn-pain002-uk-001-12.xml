@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.12">
+    <CstmrPmtStsRpt>
+
+        <!-- ========================================================= -->
+        <!-- GROUP HEADER (FULLY EXPANDED) -->
+        <!-- ========================================================= -->
+        <GrpHdr>
+            <MsgId>UK-EPAP-PAIN002-MAX-20260804-000001</MsgId>
+            <CreDtTm>2026-08-04T09:15:00</CreDtTm>
+            <NbOfTxs>12</NbOfTxs>
+            <CtrlSum>198765.43</CtrlSum>
+
+            <InitgPty>
+                <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                <Id>
+                    <OrgId>
+                        <AnyBIC>NWBKGB2L</AnyBIC>
+                        <LEI>5493001KJTIIGC8Y1R12</LEI>
+                        <Othr>
+                            <Id>EPAP-UK-INITG-001</Id>
+                            <SchmeNm>
+                                <Cd>TXID</Cd>
+                                <Prtry>UK-CORP-ID</Prtry>
+                            </SchmeNm>
+                            <Issr>EPAP-ID-REGISTRY</Issr>
+                        </Othr>
+                    </OrgId>
+                </Id>
+                <CtctDtls>
+                    <Nm>Payments Operations Team</Nm>
+                    <PhneNb>+44-20-7000-0000</PhneNb>
+                    <MobNb>+44-7700-900000</MobNb>
+                    <FaxNb>+44-20-7000-0001</FaxNb>
+                    <EmailAdr>payments.ops@epap.example.com</EmailAdr>
+                    <Othr>Operations Contact</Othr>
+                </CtctDtls>
+            </InitgPty>
+
+            <FwdgAgt>
+                <FinInstnId>
+                    <BIC>NWBKGB2L</BIC>
+                    <Nm>NatWest Bank Plc</Nm>
+                    <PstlAdr>
+                        <StrtNm>250 Bishopsgate</StrtNm>
+                        <TwnNm>London</TwnNm>
+                        <PstCd>EC2M 4AA</PstCd>
+                        <Ctry>GB</Ctry>
+                    </PstlAdr>
+                    <Othr>
+                        <Id>NWBK-UK-001</Id>
+                        <SchmeNm>
+                            <Prtry>UK-BANK-ID</Prtry>
+                        </SchmeNm>
+                        <Issr>UK-BANK-REGISTRY</Issr>
+                    </Othr>
+                </FinInstnId>
+                <BrnchId>
+                    <Id>601613</Id>
+                    <Nm>London Tech Branch</Nm>
+                </BrnchId>
+            </FwdgAgt>
+        </GrpHdr>
+
+        <!-- ========================================================= -->
+        <!-- ORIGINAL GROUP INFO AND STATUS (MAX) -->
+        <!-- ========================================================= -->
+        <OrgnlGrpInfAndSts>
+            <OrgnlMsgId>UK-EPAP-PAIN001-MAX-20260803-000001</OrgnlMsgId>
+            <OrgnlMsgNmId>pain.001.001.09</OrgnlMsgNmId>
+            <OrgnlCreDtTm>2026-08-03T23:20:00</OrgnlCreDtTm>
+            <OrgnlNbOfTxs>12</OrgnlNbOfTxs>
+            <OrgnlCtrlSum>198765.43</OrgnlCtrlSum>
+
+            <GrpSts>PART</GrpSts>
+
+            <StsRsnInf>
+                <Rsn>
+                    <Cd>PART</Cd>
+                    <Prtry>UK-MIXED-STATUS</Prtry>
+                </Rsn>
+                <AddtlInf>File partially accepted: 9 accepted, 3 rejected.</AddtlInf>
+                <AddtlInf>Includes FPS, CHAPS and BACS transactions.</AddtlInf>
+            </StsRsnInf>
+
+            <OrgnlGrpInf>
+                <NbOfTxs>12</NbOfTxs>
+                <CtrlSum>198765.43</CtrlSum>
+            </OrgnlGrpInf>
+
+            <SplmtryData>
+                <PlcAndNm>UK-FILE-EXT</PlcAndNm>
+                <Envlp>
+                    <Any>
+                        <UKFileExt xmlns="urn:epap:uk:file:ext">
+                            <FileProcessingWindow>2026-08-04T06:00:00Z/2026-08-04T18:00:00Z</FileProcessingWindow>
+                            <FileSchemeRefs>
+                                <FpsRef>FPS-2026-08-04-FILE-001</FpsRef>
+                                <ChapsRef>CHAPS-2026-08-04-FILE-001</ChapsRef>
+                                <BacsRef>BACS-2026-08-04-FILE-001</BacsRef>
+                            </FileSchemeRefs>
+                            <FileChannel>API</FileChannel>
+                            <FileRiskScore>LOW</FileRiskScore>
+                        </UKFileExt>
+                    </Any>
+                </Envlp>
+            </SplmtryData>
+        </OrgnlGrpInfAndSts>
+
+        <!-- ========================================================= -->
+        <!-- PAYMENT INFO 1: FPS PAYROLL (MAX) -->
+        <!-- ========================================================= -->
+        <OrgnlPmtInfAndSts>
+            <OrgnlPmtInfId>PMTINF-UK-FPS-MAX-20260803-01</OrgnlPmtInfId>
+            <OrgnlNbOfTxs>5</OrgnlNbOfTxs>
+            <OrgnlCtrlSum>75678.90</OrgnlCtrlSum>
+
+            <PmtInfSts>PART</PmtInfSts>
+
+            <StsRsnInf>
+                <Rsn>
+                    <Cd>PART</Cd>
+                    <Prtry>UK-FPS-PARTIAL</Prtry>
+                </Rsn>
+                <AddtlInf>3 accepted and settled, 2 rejected.</AddtlInf>
+            </StsRsnInf>
+
+            <Dbtr>
+                <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                <PstlAdr>
+                    <AdrTp>HOME</AdrTp>
+                    <Dept>Payments</Dept>
+                    <SubDept>Operations</SubDept>
+                    <StrtNm>1 Data Platform Way</StrtNm>
+                    <BldgNb>10</BldgNb>
+                    <PstCd>EC2A 1AA</PstCd>
+                    <TwnNm>London</TwnNm>
+                    <CtrySubDvsn>London</CtrySubDvsn>
+                    <Ctry>GB</Ctry>
+                    <AdrLine>Enterprise Payments AI Platform Ltd</AdrLine>
+                    <AdrLine>1 Data Platform Way</AdrLine>
+                </PstlAdr>
+                <Id>
+                    <OrgId>
+                        <AnyBIC>NWBKGB2L</AnyBIC>
+                        <Othr>
+                            <Id>EPAP-UK-DEBTOR-001</Id>
+                            <SchmeNm>
+                                <Prtry>UK-DEBTOR-ID</Prtry>
+                            </SchmeNm>
+                            <Issr>EPAP-ID-REGISTRY</Issr>
+                        </Othr>
+                    </OrgId>
+                </Id>
+                <CtctDtls>
+                    <Nm>Corporate Treasury</Nm>
+                    <PhneNb>+44-20-7000-1000</PhneNb>
+                    <EmailAdr>treasury@epap.example.com</EmailAdr>
+                </CtctDtls>
+            </Dbtr>
+
+            <DbtrAcct>
+                <Id>
+                    <IBAN>GB29NWBK60161331926819</IBAN>
+                    <Othr>
+                        <Id>60161331926819</Id>
+                        <SchmeNm>
+                            <Prtry>UK-SORT-ACC</Prtry>
+                        </SchmeNm>
+                        <Issr>UK-ACCOUNT-REGISTRY</Issr>
+                    </Othr>
+                </Id>
+                <Tp>
+                    <Cd>CACC</Cd>
+                    <Prtry>CORP-CURRENT</Prtry>
+                </Tp>
+                <Ccy>GBP</Ccy>
+                <Nm>EPAP Main Settlement Account</Nm>
+            </DbtrAcct>
+
+            <DbtrAgt>
+                <FinInstnId>
+                    <BIC>NWBKGB2L</BIC>
+                    <Nm>NatWest Bank Plc</Nm>
+                    <PstlAdr>
+                        <StrtNm>250 Bishopsgate</StrtNm>
+                        <TwnNm>London</TwnNm>
+                        <PstCd>EC2M 4AA</PstCd>
+                        <Ctry>GB</Ctry>
+                    </PstlAdr>
+                    <Othr>
+                        <Id>NWBK-UK-001</Id>
+                        <SchmeNm>
+                            <Prtry>UK-BANK-ID</Prtry>
+                        </SchmeNm>
+                        <Issr>UK-BANK-REGISTRY</Issr>
+                    </Othr>
+                </FinInstnId>
+                <BrnchId>
+                    <Id>601613</Id>
+                    <Nm>London Tech Branch</Nm>
+                </BrnchId>
+            </DbtrAgt>
+
+            <!-- FPS Tx 1: Salary – Accepted & Settled -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-FPS-MAX-20260803-0001</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-FPS-MAX-20260803-0001</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-FPS-MAX-0001</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">15000.00</InstdAmt>
+                    </Amt>
+
+                    <PmtTpInf>
+                        <InstrPrty>NORM</InstrPrty>
+                        <SvcLvl>
+                            <Cd>SEPA</Cd>
+                        </SvcLvl>
+                        <SvcLvl>
+                            <Prtry>UK-CT</Prtry>
+                        </SvcLvl>
+                        <LclInstrm>
+                            <Cd>INST</Cd>
+                            <Prtry>FPS</Prtry>
+                        </LclInstrm>
+                        <CtgyPurp>
+                            <Cd>SALA</Cd>
+                            <Prtry>PAYROLL</Prtry>
+                        </CtgyPurp>
+                    </PmtTpInf>
+
+                    <ReqdExctnDt>2026-08-04</ReqdExctnDt>
+
+                    <Dbtr>
+                        <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                    </Dbtr>
+                    <DbtrAcct>
+                        <Id>
+                            <IBAN>GB29NWBK60161331926819</IBAN>
+                        </Id>
+                    </DbtrAcct>
+                    <DbtrAgt>
+                        <FinInstnId>
+                            <BIC>NWBKGB2L</BIC>
+                        </FinInstnId>
+                    </DbtrAgt>
+
+                    <UltmtDbtr>
+                        <Nm>EPAP Payroll Funding Entity</Nm>
+                        <Id>
+                            <OrgId>
+                                <Othr>
+                                    <Id>EPAP-ULT-DBTR-001</Id>
+                                    <SchmeNm>
+                                        <Prtry>UK-ULT-DBTR</Prtry>
+                                    </SchmeNm>
+                                    <Issr>EPAP-ID-REGISTRY</Issr>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                    </UltmtDbtr>
+
+                    <CdtrAgt>
+                        <FinInstnId>
+                            <BIC>BARCGB22</BIC>
+                            <Nm>Barclays Bank UK Plc</Nm>
+                        </FinInstnId>
+                        <BrnchId>
+                            <Id>202015</Id>
+                            <Nm>London Canary Wharf Branch</Nm>
+                        </BrnchId>
+                    </CdtrAgt>
+
+                    <Cdtr>
+                        <Nm>Herrick Ochom</Nm>
+                        <PstlAdr>
+                            <AdrTp>HOME</AdrTp>
+                            <StrtNm>Modern Residential Project Street</StrtNm>
+                            <BldgNb>5</BldgNb>
+                            <PstCd>SW1A 1AA</PstCd>
+                            <TwnNm>London</TwnNm>
+                            <Ctry>GB</Ctry>
+                            <AdrLine>Herrick Ochom</AdrLine>
+                            <AdrLine>5 Modern Residential Project Street</AdrLine>
+                        </PstlAdr>
+                        <Id>
+                            <PrvtId>
+                                <DtAndPlcOfBirth>
+                                    <BirthDt>1985-06-15</BirthDt>
+                                    <CityOfBirth>Kampala</CityOfBirth>
+                                    <CtryOfBirth>UG</CtryOfBirth>
+                                </DtAndPlcOfBirth>
+                                <Othr>
+                                    <Id>HERRICK-UK-PRVT-001</Id>
+                                    <SchmeNm>
+                                        <Prtry>UK-PRVT-ID</Prtry>
+                                    </SchmeNm>
+                                    <Issr>EPAP-CUSTOMER-REGISTRY</Issr>
+                                </Othr>
+                            </PrvtId>
+                        </Id>
+                    </Cdtr>
+
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB33BUKB20201555555555</IBAN>
+                            <Othr>
+                                <Id>20201555555555</Id>
+                                <SchmeNm>
+                                    <Prtry>UK-SORT-ACC</Prtry>
+                                </SchmeNm>
+                                <Issr>UK-ACCOUNT-REGISTRY</Issr>
+                            </Othr>
+                        </Id>
+                        <Tp>
+                            <Cd>CACC</Cd>
+                        </Tp>
+                        <Ccy>GBP</Ccy>
+                        <Nm>Herrick Ochom Personal Account</Nm>
+                    </CdtrAcct>
+
+                    <UltmtCdtr>
+                        <Nm>Herrick Ochom</Nm>
+                    </UltmtCdtr>
+
+                    <Purp>
+                        <Cd>SALA</Cd>
+                        <Prtry>Monthly Salary</Prtry>
+                    </Purp>
+
+                    <RgltryRptg>
+                        <DbtCdtRptgInd>DBIT</DbtCdtRptgInd>
+                        <Authrty>
+                            <Nm>UK-FCA</Nm>
+                            <Ctry>GB</Ctry>
+                        </Authrty>
+                        <Dtls>
+                            <Tp>
+                                <Cd>REG</Cd>
+                            </Tp>
+                            <Cd>PAYROLL</Cd>
+                            <Amt>
+                                <Amt Ccy="GBP">15000.00</Amt>
+                            </Amt>
+                            <Inf>Payroll payment under UK employment contract</Inf>
+                        </Dtls>
+                    </RgltryRptg>
+
+                    <RmtInf>
+                        <Ustrd>Salary July 2026 - EPAP Payroll</Ustrd>
+                        <Ustrd>Employee ID: HERRICK-001</Ustrd>
+                        <Strd>
+                            <CdtrRefInf>
+                                <Tp>
+                                    <CdOrPrtry>
+                                        <Cd>SCOR</Cd>
+                                    </CdOrPrtry>
+                                    <Issr>EPAP-PAYROLL</Issr>
+                                </Tp>
+                                <Ref>PAYROLL-2026-07-HERRICK</Ref>
+                            </CdtrRefInf>
+                            <AddtlRmtInf>UK PAYE compliant payroll remittance</AddtlRmtInf>
+                        </Strd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>ACSC</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSC</Cd>
+                        <Prtry>UK-FPS-SETTLED</Prtry>
+                    </Rsn>
+                    <AddtlInf>Accepted and settled via UK FPS.</AddtlInf>
+                    <AddtlInf>Credited to beneficiary account.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T08:01:30</AccptncDtTm>
+                <StsId>STS-UK-FPS-MAX-0001</StsId>
+                <StsDtTm>2026-08-04T08:05:00</StsDtTm>
+
+                <InstgAgt>
+                    <FinInstnId>
+                        <BIC>NWBKGB2L</BIC>
+                        <Nm>NatWest Bank Plc</Nm>
+                    </FinInstnId>
+                </InstgAgt>
+                <InstdAgt>
+                    <FinInstnId>
+                        <BIC>BARCGB22</BIC>
+                        <Nm>Barclays Bank UK Plc</Nm>
+                    </FinInstnId>
+                </InstdAgt>
+
+                <SplmtryData>
+                    <PlcAndNm>UK-FPS-TX-EXT</PlcAndNm>
+                    <Envlp>
+                        <Any>
+                            <UKFpsTxExt xmlns="urn:epap:uk:fps:ext">
+                                <SettlementWindow>2026-08-04T08:00:00</SettlementWindow>
+                                <SettlementRef>FPS-SET-2026-08-04-001</SettlementRef>
+                                <ProcessingChannel>API</ProcessingChannel>
+                                <RiskScore>LOW</RiskScore>
+                                <SchemeTraceId>FPS-TRACE-0001</SchemeTraceId>
+                            </UKFpsTxExt>
+                        </Any>
+                    </Envlp>
+                </SplmtryData>
+            </TxInfAndSts>
+
+            <!-- FPS Tx 2: Supplier – Accepted & Settled -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-FPS-MAX-20260803-0002</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-FPS-MAX-20260803-0002</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-FPS-MAX-0002</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">5000.50</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>UK Construction Supplier Ltd</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB12LOYD30949312345678</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <CdtrAgt>
+                        <FinInstnId>
+                            <BIC>LOYDGB2L</BIC>
+                        </FinInstnId>
+                    </CdtrAgt>
+                    <Purp>
+                        <Cd>SUPP</Cd>
+                        <Prtry>Construction Materials</Prtry>
+                    </Purp>
+                    <RmtInf>
+                        <Ustrd>Invoice INV-2026-0715-UKCONSTR</Ustrd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>ACSC</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSC</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted and settled via UK FPS.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T08:02:10</AccptncDtTm>
+                <StsId>STS-UK-FPS-MAX-0002</StsId>
+                <StsDtTm>2026-08-04T08:06:00</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- FPS Tx 3: Cloud Subscription – Rejected (Insufficient Funds) -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-FPS-MAX-20260803-0003</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-FPS-MAX-20260803-0003</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-FPS-MAX-0003</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">25678.40</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>Cloud Data Services UK Ltd</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB55MIDL40051599999999</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <CdtrAgt>
+                        <FinInstnId>
+                            <BIC>HSBCGB2L</BIC>
+                        </FinInstnId>
+                    </CdtrAgt>
+                    <Purp>
+                        <Cd>SUPP</Cd>
+                        <Prtry>Cloud Platform Subscription</Prtry>
+                    </Purp>
+                    <RmtInf>
+                        <Ustrd>Subscription July 2026 - Enterprise Tier</Ustrd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>RJCT</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>AC04</Cd>
+                        <Prtry>UK-FPS-INSUFFICIENT-FUNDS</Prtry>
+                    </Rsn>
+                    <AddtlInf>Insufficient funds on debtor account for high-value FPS transaction.</AddtlInf>
+                    <AddtlInf>Debtor account balance below scheme threshold.</AddtlInf>
+                </StsRsnInf>
+
+                <StsId>STS-UK-FPS-MAX-0003</StsId>
+                <StsDtTm>2026-08-04T08:03:45</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- FPS Tx 4: Small Payment – Accepted for Processing (ACSP) -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-FPS-MAX-20260803-0004</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-FPS-MAX-20260803-0004</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-FPS-MAX-0004</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">25.00</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>Test Beneficiary A</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB11TEST00000000000001</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <Purp>
+                        <Cd>OTHR</Cd>
+                        <Prtry>Test Payment</Prtry>
+                    </Purp>
+                </OrgnlTxRef>
+
+                <TxSts>ACSP</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSP</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted for processing via UK FPS.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T08:10:00</AccptncDtTm>
+                <StsId>STS-UK-FPS-MAX-0004</StsId>
+                <StsDtTm>2026-08-04T08:10:30</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- FPS Tx 5: Compliance Reject (AG01) -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-FPS-MAX-20260803-0005</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-FPS-MAX-20260803-0005</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-FPS-MAX-0005</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">9999.99</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>High Risk Counterparty</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB99RISK00000000000001</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <Purp>
+                        <Cd>OTHR</Cd>
+                        <Prtry>High Risk Payment</Prtry>
+                    </Purp>
+                </OrgnlTxRef>
+
+                <TxSts>RJCT</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>AG01</Cd>
+                        <Prtry>UK-FPS-COMPLIANCE-REJECT</Prtry>
+                    </Rsn>
+                    <AddtlInf>Payment rejected due to compliance screening.</AddtlInf>
+                    <AddtlInf>Counterparty on internal watchlist.</AddtlInf>
+                </StsRsnInf>
+
+                <StsId>STS-UK-FPS-MAX-0005</StsId>
+                <StsDtTm>2026-08-04T08:12:00</StsDtTm>
+            </TxInfAndSts>
+        </OrgnlPmtInfAndSts>
+
+        <!-- ========================================================= -->
+        <!-- PAYMENT INFO 2: CHAPS HIGH-VALUE (MAX) -->
+        <!-- ========================================================= -->
+        <OrgnlPmtInfAndSts>
+            <OrgnlPmtInfId>PMTINF-UK-CHAPS-MAX-20260803-02</OrgnlPmtInfId>
+            <OrgnlNbOfTxs>4</OrgnlNbOfTxs>
+            <OrgnlCtrlSum>90000.00</OrgnlCtrlSum>
+
+            <PmtInfSts>ACSC</PmtInfSts>
+
+            <StsRsnInf>
+                <Rsn>
+                    <Cd>ACSC</Cd>
+                    <Prtry>UK-CHAPS-SETTLED</Prtry>
+                </Rsn>
+                <AddtlInf>All CHAPS transactions accepted and settled.</AddtlInf>
+            </StsRsnInf>
+
+            <!-- CHAPS Tx 1: Property Deposit -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-CHAPS-MAX-20260803-0001</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-CHAPS-MAX-20260803-0001</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-CHAPS-MAX-0001</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">30000.00</InstdAmt>
+                    </Amt>
+                    <Dbtr>
+                        <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                    </Dbtr>
+                    <DbtrAcct>
+                        <Id>
+                            <IBAN>GB82NWBK60161312345678</IBAN>
+                        </Id>
+                    </DbtrAcct>
+                    <DbtrAgt>
+                        <FinInstnId>
+                            <BIC>NWBKGB2L</BIC>
+                        </FinInstnId>
+                    </DbtrAgt>
+                    <Cdtr>
+                        <Nm>UK Real Estate Holdings Plc</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB33BUKB20201588888888</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <CdtrAgt>
+                        <FinInstnId>
+                            <BIC>BARCGB22</BIC>
+                        </FinInstnId>
+                    </CdtrAgt>
+                    <Purp>
+                        <Cd>TRAD</Cd>
+                        <Prtry>Property Acquisition Deposit</Prtry>
+                    </Purp>
+                    <RmtInf>
+                        <Ustrd>Property Deposit - Ref: PROP-2026-ACQ-01</Ustrd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>ACSC</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSC</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted and settled via UK CHAPS.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T07:45:00</AccptncDtTm>
+                <StsId>STS-UK-CHAPS-MAX-0001</StsId>
+                <StsDtTm>2026-08-04T07:50:00</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- CHAPS Tx 2: Legal Fees -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-CHAPS-MAX-20260803-0002</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-CHAPS-MAX-20260803-0002</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-CHAPS-MAX-0002</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">20000.00</InstdAmt>
+                    </Amt>
+                    <Dbtr>
+                        <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                    </Dbtr>
+                    <DbtrAcct>
+                        <Id>
+                            <IBAN>GB82NWBK60161312345678</IBAN>
+                        </Id>
+                    </DbtrAcct>
+                    <DbtrAgt>
+                        <FinInstnId>
+                            <BIC>NWBKGB2L</BIC>
+                        </FinInstnId>
+                    </DbtrAgt>
+                    <Cdtr>
+                        <Nm>UK Legal Services LLP</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB12LOYD30949377777777</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <CdtrAgt>
+                        <FinInstnId>
+                            <BIC>LOYDGB2L</BIC>
+                        </FinInstnId>
+                    </CdtrAgt>
+                    <Purp>
+                        <Cd>TRAD</Cd>
+                        <Prtry>Legal Fees</Prtry>
+                    </Purp>
+                    <RmtInf>
+                        <Ustrd>Legal Fees - Property Acquisition PROP-2026-ACQ-01</Ustrd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>ACSC</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSC</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted and settled via UK CHAPS.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T07:46:30</AccptncDtTm>
+                <StsId>STS-UK-CHAPS-MAX-0002</StsId>
+                <StsDtTm>2026-08-04T07:51:00</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- CHAPS Tx 3: Treasury Movement -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-CHAPS-MAX-20260803-0003</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-CHAPS-MAX-20260803-0003</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-CHAPS-MAX-0003</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">25000.00</InstdAmt>
+                    </Amt>
+                    <Dbtr>
+                        <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                    </Dbtr>
+                    <DbtrAcct>
+                        <Id>
+                            <IBAN>GB82NWBK60161312345678</IBAN>
+                        </Id>
+                    </DbtrAcct>
+                    <Cdtr>
+                        <Nm>EPAP Liquidity Account</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB00LIQD00000000000001</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <Purp>
+                        <Cd>TRAD</Cd>
+                        <Prtry>Treasury Liquidity Movement</Prtry>
+                    </Purp>
+                    <RmtInf>
+                        <Ustrd>Internal Liquidity Transfer</Ustrd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>ACSC</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSC</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted and settled via UK CHAPS.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T07:52:00</AccptncDtTm>
+                <StsId>STS-UK-CHAPS-MAX-0003</StsId>
+                <StsDtTm>2026-08-04T07:56:00</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- CHAPS Tx 4: FX-related Payment (Accepted for Processing) -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-CHAPS-MAX-20260803-0004</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-CHAPS-MAX-20260803-0004</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-CHAPS-MAX-0004</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">15000.00</InstdAmt>
+                    </Amt>
+                    <Dbtr>
+                        <Nm>Enterprise Payments AI Platform Ltd</Nm>
+                    </Dbtr>
+                    <Cdtr>
+                        <Nm>FX Provider UK Ltd</Nm>
+                    </Cdtr>
+                    <Purp>
+                        <Cd>TRAD</Cd>
+                        <Prtry>FX Settlement</Prtry>
+                    </Purp>
+                </OrgnlTxRef>
+
+                <TxSts>ACSP</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSP</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted for CHAPS processing.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T07:58:00</AccptncDtTm>
+                <StsId>STS-UK-CHAPS-MAX-0004</StsId>
+                <StsDtTm>2026-08-04T07:59:00</StsDtTm>
+            </TxInfAndSts>
+        </OrgnlPmtInfAndSts>
+
+        <!-- ========================================================= -->
+        <!-- PAYMENT INFO 3: BACS BULK (MAX) -->
+        <!-- ========================================================= -->
+        <OrgnlPmtInfAndSts>
+            <OrgnlPmtInfId>PMTINF-UK-BACS-MAX-20260803-03</OrgnlPmtInfId>
+            <OrgnlNbOfTxs>3</OrgnlNbOfTxs>
+            <OrgnlCtrlSum>32986.53</OrgnlCtrlSum>
+
+            <PmtInfSts>ACSP</PmtInfSts>
+
+            <StsRsnInf>
+                <Rsn>
+                    <Cd>ACSP</Cd>
+                    <Prtry>UK-BACS-ACCEPTED</Prtry>
+                </Rsn>
+                <AddtlInf>Payment information accepted for BACS processing.</AddtlInf>
+            </StsRsnInf>
+
+            <!-- BACS Tx 1 -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-BACS-MAX-20260803-0001</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-BACS-MAX-20260803-0001</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-BACS-MAX-0001</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">3086.53</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>UK Misc Suppliers Pool</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB55MIDL40051533333333</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <Purp>
+                        <Cd>SUPP</Cd>
+                        <Prtry>Bulk Supplier Settlement</Prtry>
+                    </Purp>
+                    <RmtInf>
+                        <Ustrd>Bulk BACS Settlement Batch: BACS-2026-08-03-POOL</Ustrd>
+                    </RmtInf>
+                </OrgnlTxRef>
+
+                <TxSts>ACSP</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSP</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted for BACS processing; settlement on next BACS cycle.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T06:30:00</AccptncDtTm>
+                <StsId>STS-UK-BACS-MAX-0001</StsId>
+                <StsDtTm>2026-08-04T06:35:00</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- BACS Tx 2 -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-BACS-MAX-20260803-0002</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-BACS-MAX-20260803-0002</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-BACS-MAX-0002</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">15000.00</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>Supplier BACS A</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB00BACS00000000000001</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <Purp>
+                        <Cd>SUPP</Cd>
+                        <Prtry>Regular Supplier Payment</Prtry>
+                    </Purp>
+                </OrgnlTxRef>
+
+                <TxSts>ACSP</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>ACSP</Cd>
+                    </Rsn>
+                    <AddtlInf>Accepted for BACS processing.</AddtlInf>
+                </StsRsnInf>
+
+                <AccptncDtTm>2026-08-04T06:40:00</AccptncDtTm>
+                <StsId>STS-UK-BACS-MAX-0002</StsId>
+                <StsDtTm>2026-08-04T06:41:00</StsDtTm>
+            </TxInfAndSts>
+
+            <!-- BACS Tx 3: Reject (MS03 – Reason Not Specified) -->
+            <TxInfAndSts>
+                <OrgnlInstrId>UK-BACS-MAX-20260803-0003</OrgnlInstrId>
+                <OrgnlEndToEndId>E2E-UK-BACS-MAX-20260803-0003</OrgnlEndToEndId>
+                <OrgnlTxId>TX-UK-BACS-MAX-0003</OrgnlTxId>
+
+                <OrgnlTxRef>
+                    <Amt>
+                        <InstdAmt Ccy="GBP">14900.00</InstdAmt>
+                    </Amt>
+                    <Cdtr>
+                        <Nm>Supplier BACS B</Nm>
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>GB00BACS00000000000002</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <Purp>
+                        <Cd>SUPP</Cd>
+                        <Prtry>Regular Supplier Payment</Prtry>
+                    </Purp>
+                </OrgnlTxRef>
+
+                <TxSts>RJCT</TxSts>
+
+                <StsRsnInf>
+                    <Rsn>
+                        <Cd>MS03</Cd>
+                        <Prtry>UK-BACS-UNSPECIFIED-REJECT</Prtry>
+                    </Rsn>
+                    <AddtlInf>Payment rejected by BACS; reason not specified.</AddtlInf>
+                </StsRsnInf>
+
+                <StsId>STS-UK-BACS-MAX-0003</StsId>
+                <StsDtTm>2026-08-04T06:45:00</StsDtTm>
+            </TxInfAndSts>
+        </OrgnlPmtInfAndSts>
+
+    </CstmrPmtStsRpt>
+</Document>

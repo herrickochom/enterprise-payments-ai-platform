@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CpoPlm xmlns="urn:epap:plm:cpo:v1">
+
+    <PlatformHeaders>
+        <XCustomer>CUST-SYN-001</XCustomer>
+        <XChannelCustomerSaId>SA-SYN-001</XChannelCustomerSaId>
+        <XChannelCustomerDeviceId>DEV-SYN-001</XChannelCustomerDeviceId>
+        <XChannelCustomerIp>192.0.2.10</XChannelCustomerIp>
+        <XChannelCustomerSessionId>SESS-SYN-001</XChannelCustomerSessionId>
+        <XChannelCustomerAuthStrength>STRONG</XChannelCustomerAuthStrength>
+        <XChannel>WEB_PORTAL</XChannel>
+        <XSourceSystem>INGESTION_PIPELINE</XSourceSystem>
+        <XUserId>USER-SYN-001</XUserId>
+        <XTenantId>TENANT-SYN-UK</XTenantId>
+        <XTraceId>TRACE-SYN-CPO-0001</XTraceId>
+        <XSpanId>SPAN-SYN-CPO-0001</XSpanId>
+        <XIngestionPipelineVersion>ingest-v3.4</XIngestionPipelineVersion>
+    </PlatformHeaders>
+
+    <Cpo>
+        <CpoId>CPO-SYN-2026-0001</CpoId>
+        <CpoVersion>1.0</CpoVersion>
+        <CpoStatus>RECEIVED</CpoStatus>
+        <CpoStatusReason>Initial synthetic capture</CpoStatusReason>
+        <CpoBatchId>BATCH-SYN-001</CpoBatchId>
+        <CpoCorrelationId>CORR-SYN-001</CpoCorrelationId>
+
+        <InitiatingParty>
+            <PartyId>PARTY-INIT-SYN-001</PartyId>
+            <LegalName>Synthetic Initiating Party Ltd</LegalName>
+            <PartyType>ORGANIZATION</PartyType>
+        </InitiatingParty>
+
+        <Debtor>
+            <PartyId>PARTY-DBTR-SYN-001</PartyId>
+            <LegalName>Synthetic Debtor Corp</LegalName>
+            <PartyType>ORGANIZATION</PartyType>
+        </Debtor>
+
+        <DebtorAccount>
+            <AccountId>ACC-DBTR-SYN-001</AccountId>
+            <Iban>GB00SYN00000000000001</Iban>
+            <Currency>GBP</Currency>
+        </DebtorAccount>
+
+        <Creditor>
+            <PartyId>PARTY-CDTR-SYN-001</PartyId>
+            <LegalName>Synthetic Creditor Person</LegalName>
+            <PartyType>PERSON</PartyType>
+        </Creditor>
+
+        <CreditorAccount>
+            <AccountId>ACC-CDTR-SYN-001</AccountId>
+            <Iban>GB00SYN00000000000002</Iban>
+            <Currency>GBP</Currency>
+        </CreditorAccount>
+
+        <PaymentInstruction>
+            <InstructionId>CPO-INSTR-SYN-0001</InstructionId>
+            <EndToEndId>E2E-SYN-0001</EndToEndId>
+            <Amount>
+                <Currency>GBP</Currency>
+                <InstructedAmount>123.45</InstructedAmount>
+            </Amount>
+            <Purpose>
+                <Code>SALA</Code>
+                <Description>Synthetic Salary Payment</Description>
+            </Purpose>
+        </PaymentInstruction>
+
+        <PlatformMetadata>
+            <TenantId>TENANT-SYN-UK</TenantId>
+            <TraceId>TRACE-SYN-CPO-0001</TraceId>
+            <SpanId>SPAN-SYN-CPO-0001</SpanId>
+            <SchemaVersion>cpo-plm-v1.0</SchemaVersion>
+        </PlatformMetadata>
+    </Cpo>
+
+</CpoPlm>

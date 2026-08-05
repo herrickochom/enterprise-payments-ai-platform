@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VpmPlm xmlns="urn:epap:plm:vpm:v1">
+
+    <PlatformHeaders>
+        <XCustomer>CUST-SYN-003</XCustomer>
+        <XChannelCustomerSaId>SA-SYN-003</XChannelCustomerSaId>
+        <XChannelCustomerDeviceId>DEV-SYN-003</XChannelCustomerDeviceId>
+        <XChannelCustomerIp>192.0.2.30</XChannelCustomerIp>
+        <XChannelCustomerSessionId>SESS-SYN-003</XChannelCustomerSessionId>
+        <XChannelCustomerAuthStrength>LOW</XChannelCustomerAuthStrength>
+        <XChannel>MOBILE_APP</XChannel>
+        <XSourceSystem>VIRTUAL_ACCOUNT_ENGINE</XSourceSystem>
+        <XUserId>USER-SYN-003</XUserId>
+        <XTenantId>TENANT-SYN-UK</XTenantId>
+        <XTraceId>TRACE-SYN-VPM-0001</XTraceId>
+        <XSpanId>SPAN-SYN-VPM-0001</XSpanId>
+        <XIngestionPipelineVersion>ingest-v3.4</XIngestionPipelineVersion>
+    </PlatformHeaders>
+
+    <Vpm>
+        <VpmId>VPM-SYN-2026-0001</VpmId>
+        <VpmVersion>1.0</VpmVersion>
+
+        <VirtualAccount>
+            <VirtualAccountId>VACC-SYN-001</VirtualAccountId>
+            <VirtualAccountNumber>900000000001</VirtualAccountNumber>
+            <Currency>GBP</Currency>
+            <Status>ACTIVE</Status>
+        </VirtualAccount>
+
+        <RoutingRules>
+            <DefaultDestinationAccountId>ACC-CDTR-SYN-001</DefaultDestinationAccountId>
+        </RoutingRules>
+
+        <PlatformMetadata>
+            <TenantId>TENANT-SYN-UK</TenantId>
+            <TraceId>TRACE-SYN-VPM-0001</TraceId>
+            <SpanId>SPAN-SYN-VPM-0001</SpanId>
+            <SchemaVersion>vpm-plm-v1.0</SchemaVersion>
+        </PlatformMetadata>
+    </Vpm>
+
+</VpmPlm>

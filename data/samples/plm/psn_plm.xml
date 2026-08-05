@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PsnPlm xmlns="urn:epap:plm:psn:v1">
+
+    <PlatformHeaders>
+        <XCustomer>CUST-SYN-002</XCustomer>
+        <XChannelCustomerSaId>SA-SYN-002</XChannelCustomerSaId>
+        <XChannelCustomerDeviceId>DEV-SYN-002</XChannelCustomerDeviceId>
+        <XChannelCustomerIp>192.0.2.20</XChannelCustomerIp>
+        <XChannelCustomerSessionId>SESS-SYN-002</XChannelCustomerSessionId>
+        <XChannelCustomerAuthStrength>MEDIUM</XChannelCustomerAuthStrength>
+        <XChannel>API</XChannel>
+        <XSourceSystem>SETTLEMENT_ENGINE</XSourceSystem>
+        <XUserId>USER-SYN-002</XUserId>
+        <XTenantId>TENANT-SYN-UK</XTenantId>
+        <XTraceId>TRACE-SYN-PSN-0001</XTraceId>
+        <XSpanId>SPAN-SYN-PSN-0001</XSpanId>
+        <XIngestionPipelineVersion>ingest-v3.4</XIngestionPipelineVersion>
+    </PlatformHeaders>
+
+    <Psn>
+        <PsnId>PSN-SYN-2026-0001</PsnId>
+        <RelatedCpoId>CPO-SYN-2026-0001</RelatedCpoId>
+        <RelatedInstructionId>CPO-INSTR-SYN-0001</RelatedInstructionId>
+        <RelatedEndToEndId>E2E-SYN-0001</RelatedEndToEndId>
+
+        <Status>
+            <CurrentStatusCode>SETTLED</CurrentStatusCode>
+            <CurrentStatusReason>Synthetic settlement</CurrentStatusReason>
+        </Status>
+
+        <SchemeStatus>
+            <Scheme>UK_FPS</Scheme>
+            <SchemeStatusCode>ACSC</SchemeStatusCode>
+            <SchemeTraceId>FPS-SYN-TRACE-0001</SchemeTraceId>
+        </SchemeStatus>
+
+        <Amounts>
+            <OriginalCurrency>GBP</OriginalCurrency>
+            <OriginalAmount>123.45</OriginalAmount>
+            <SettledCurrency>GBP</SettledCurrency>
+            <SettledAmount>123.45</SettledAmount>
+        </Amounts>
+
+        <PlatformMetadata>
+            <TenantId>TENANT-SYN-UK</TenantId>
+            <TraceId>TRACE-SYN-PSN-0001</TraceId>
+            <SpanId>SPAN-SYN-PSN-0001</SpanId>
+            <SchemaVersion>psn-plm-v1.0</SchemaVersion>
+        </PlatformMetadata>
+    </Psn>
+
+</PsnPlm>

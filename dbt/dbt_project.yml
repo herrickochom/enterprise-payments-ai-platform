@@ -1,0 +1,19 @@
+name: "enterprise_payments_ai_platform"
+version: "1.0.0"
+config-version: 2
+profile: "enterprise_payments_ai_platform"
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+asset-paths: ["assets"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  enterprise_payments_ai_platform:
+    silver:
+      +materialized: view

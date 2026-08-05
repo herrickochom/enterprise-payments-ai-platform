@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epap-ingestion"
+version = "0.1.0"
+description = "Raw layer ingestion for the Enterprise Payments AI Platform."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "minio>=7.2.0",
+    "python-dotenv>=1.2.0",
+    "pydantic>=2.0",
+    "requests>=2.32.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+epap-ingestion = "epap_ingestion.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.055.001.08">
+    <FIToFIPmtCxlReq>
+        <Assgnmt>
+            <Id>ICM-CAMT055-UK-001-08</Id>
+            <CreDtTm>2026-08-04T17:41:00Z</CreDtTm>
+            <Assgnr>
+                <Agt>
+                    <FinInstnId>
+                        <BICFI>NWBKGB2L</BICFI>
+                    </FinInstnId>
+                </Agt>
+            </Assgnr>
+            <Assgne>
+                <Agt>
+                    <FinInstnId>
+                        <BICFI>BARCGB22</BICFI>
+                    </FinInstnId>
+                </Agt>
+            </Assgne>
+        </Assgnmt>
+
+        <Case>
+            <Id>CASE-ICM-CAMT055-UK-001-08</Id>
+            <Cretr>
+                <Agt>
+                    <FinInstnId>
+                        <BICFI>NWBKGB2L</BICFI>
+                    </FinInstnId>
+                </Agt>
+            </Cretr>
+        </Case>
+
+        <Undrlyg>
+            <CdtTrfTx>
+                <PmtId>
+                    <InstrId>INSTR-ICM-PACS008-UK-001-010</InstrId>
+                    <EndToEndId>E2E-ICM-PACS008-UK-001-010</EndToEndId>
+                    <TxId>TX-ICM-PACS008-UK-001-010</TxId>
+                </PmtId>
+
+                <IntrBkSttlmAmt Ccy="GBP">15000.00</IntrBkSttlmAmt>
+                <IntrBkSttlmDt>2026-08-04</IntrBkSttlmDt>
+
+                <Dbtr>
+                    <Nm>EPAP Synthetic Debtor Ltd</Nm>
+                </Dbtr>
+                <DbtrAcct>
+                    <Id>
+                        <IBAN>GB29NWBK60161331926819</IBAN>
+                    </Id>
+                </DbtrAcct>
+
+                <Cdtr>
+                    <Nm>Herrick Ochom Synthetic</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>GB33BUKB20201555555555</IBAN>
+                    </Id>
+                </CdtrAcct>
+            </CdtTrfTx>
+        </Undrlyg>
+
+        <CxlRsnInf>
+            <Rsn>
+                <Cd>AG01</Cd>
+            </Rsn>
+            <AddtlInf>Synthetic UK cancellation request due to duplicate payment</AddtlInf>
+        </CxlRsnInf>
+
+        <SplmtryData>
+            <PlcAndNm>UK-HYBRID-OVERLAY</PlcAndNm>
+            <Envlp>
+                <UKCancellationOverlay xmlns="urn:epap:uk:fps:overlay">
+                    <Channel>API</Channel>
+                    <CustomerId>CUST-UK-001</CustomerId>
+                    <SessionId>SESS-UK-002</SessionId>
+                    <DeviceId>DEV-UK-002</DeviceId>
+                    <AuthStrength>STRONG</AuthStrength>
+                    <TraceId>TRACE-ICM-CAMT055-UK-001-08</TraceId>
+                    <SpanId>SPAN-ICM-CAMT055-UK-001-08</SpanId>
+                </UKCancellationOverlay>
+            </Envlp>
+        </SplmtryData>
+    </FIToFIPmtCxlReq>
+</Document>

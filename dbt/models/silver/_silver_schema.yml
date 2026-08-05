@@ -1,0 +1,229 @@
+version: 2
+
+models:
+  - name: slv_payment_rawpayload_audit
+    description: Canonical Silver entity that preserves immutable payload audit evidence.
+    columns:
+      - name: raw_audit_id
+        tests: [not_null, unique]
+      - name: ingestion_timestamp
+        tests: [not_null]
+      - name: source_system
+      - name: checksum
+      - name: storage_pointer
+      - name: payload_type
+      - name: file_reference
+
+  - name: slv_payment_messages
+    description: Canonical Silver entity for parsed ISO 20022 messages.
+    columns:
+      - name: message_id
+        tests: [not_null, unique]
+      - name: raw_audit_id
+        tests: [not_null]
+      - name: message_type
+      - name: message_identifier
+      - name: creation_timestamp
+      - name: sender
+      - name: receiver
+      - name: message_reference
+      - name: source_system
+
+  - name: slv_payment_information
+    description: Canonical Silver entity for interpreted payment information blocks.
+    columns:
+      - name: payment_information_id
+        tests: [not_null, unique]
+      - name: message_id
+        tests: [not_null]
+      - name: instruction_id
+      - name: payment_information_type
+      - name: instruction_timestamp
+      - name: payment_method
+      - name: payment_scheme
+
+  - name: slv_payment_transactions
+    description: Canonical Silver anchor entity for enterprise payment transactions.
+    columns:
+      - name: transaction_id
+        tests: [not_null, unique]
+      - name: message_id
+        tests: [not_null]
+      - name: payment_information_id
+        tests: [not_null]
+      - name: party_id
+      - name: account_id
+      - name: mandate_id
+      - name: batch_id
+      - name: raw_payload_audit_id
+      - name: payment_reference
+      - name: end_to_end_id
+      - name: instruction_id
+      - name: amount
+      - name: currency
+      - name: value_date
+      - name: initiation_date
+      - name: payment_purpose
+      - name: payment_type
+      - name: transaction_status_summary
+
+  - name: slv_payment_party
+    description: Canonical Silver party entity for payment participants.
+    columns:
+      - name: party_id
+        tests: [not_null, unique]
+      - name: party_name
+      - name: party_type
+      - name: legal_identifier
+      - name: roles
+      - name: country
+
+  - name: slv_payment_party_address
+    description: Canonical Silver party address entity.
+    columns:
+      - name: address_id
+        tests: [not_null, unique]
+      - name: party_id
+        tests: [not_null]
+      - name: address_lines
+      - name: city
+      - name: region
+      - name: country
+      - name: postal_code
+      - name: address_type
+
+  - name: slv_payment_account
+    description: Canonical Silver financial account entity.
+    columns:
+      - name: account_id
+        tests: [not_null, unique]
+      - name: iban
+      - name: account_number
+      - name: account_type
+      - name: currency
+      - name: bank_identifier
+      - name: account_status
+
+  - name: slv_payment_mandate
+    description: Canonical Silver mandate entity.
+    columns:
+      - name: mandate_id
+        tests: [not_null, unique]
+      - name: mandate_reference
+      - name: creditor_id
+      - name: debtor_id
+      - name: mandate_status
+      - name: effective_date
+      - name: expiry_date
+
+  - name: slv_payment_batch
+    description: Canonical Silver batch entity.
+    columns:
+      - name: batch_id
+        tests: [not_null, unique]
+      - name: batch_reference
+      - name: file_name
+      - name: origin_system
+      - name: processing_window
+      - name: batch_status
+
+  - name: slv_payment_lifecycle_event
+    description: Canonical Silver lifecycle event entity.
+    columns:
+      - name: lifecycle_event_id
+        tests: [not_null, unique]
+      - name: transaction_id
+        tests: [not_null]
+      - name: event_type
+      - name: event_timestamp
+      - name: source_system
+      - name: technical_status
+      - name: source_event_id
+      - name: processing_step
+
+  - name: slv_cpo_plm_lifecycle_event
+    description: Lifecycle event source model for CPO/PLM processing history.
+    columns:
+      - name: lifecycle_event_id
+        tests: [not_null, unique]
+      - name: transaction_id
+        tests: [not_null]
+      - name: event_type
+      - name: event_timestamp
+      - name: source_system
+      - name: technical_status
+      - name: source_event_id
+      - name: processing_step
+
+  - name: slv_icmn_pmn_lifecycle_event
+    description: Lifecycle event source model for VPM/PMN processing history.
+    columns:
+      - name: lifecycle_event_id
+        tests: [not_null, unique]
+      - name: transaction_id
+        tests: [not_null]
+      - name: event_type
+      - name: event_timestamp
+      - name: source_system
+      - name: technical_status
+      - name: source_event_id
+      - name: processing_step
+
+  - name: slv_payment_status_resons
+    description: Canonical Silver payment status entity.
+    columns:
+      - name: status_id
+        tests: [not_null, unique]
+      - name: transaction_id
+        tests: [not_null]
+      - name: status_code
+      - name: status_reason
+      - name: effective_timestamp
+      - name: status_source
+      - name: status_scope
+
+  - name: slv_payment_status_report
+    description: Canonical Silver reporting entity.
+    columns:
+      - name: report_id
+        tests: [not_null, unique]
+      - name: status_id
+        tests: [not_null]
+      - name: report_type
+      - name: report_timestamp
+      - name: reconciliation_status
+      - name: report_reference
+
+  - name: slv_payment_camt005_cancellations
+    description: Canonical Silver cancellation entity.
+    columns:
+      - name: cancellation_id
+        tests: [not_null, unique]
+      - name: transaction_id
+        tests: [not_null]
+      - name: cancellation_timestamp
+      - name: cancellation_reason
+      - name: cancellation_status
+      - name: source_reference
+
+  - name: slv_payment_camt029_resolution
+    description: Canonical Silver resolution entity.
+    columns:
+      - name: resolution_id
+        tests: [not_null, unique]
+      - name: cancellation_id
+        tests: [not_null]
+      - name: resolution_status
+      - name: resolution_timestamp
+      - name: resolution_notes
+      - name: assigned_owner
+
+  - name: slv_paymnets_qd_results
+    description: Canonical Silver query results entity for QD output staging.
+    columns:
+      - name: result_id
+        tests: [not_null, unique]
+      - name: transaction_id
+      - name: query_type
+      - name: result_value
+      - name: result_timestamp

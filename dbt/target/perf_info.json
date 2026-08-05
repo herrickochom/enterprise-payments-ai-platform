@@ -1,0 +1,45 @@
+{
+    "path_count": 153,
+    "parsed_path_count": 18,
+    "static_analysis_path_count": 17,
+    "static_analysis_parsed_path_count": 17,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.04587151899977471,
+    "load_macros_elapsed": 0.00036702399938803865,
+    "parse_project_elapsed": 0.5360481439993237,
+    "patch_sources_elapsed": 1.7379999917466193e-05,
+    "process_manifest_elapsed": 0.007474432999515557,
+    "load_all_elapsed": 0.73015198199937,
+    "projects": [
+        {
+            "project_name": "enterprise_payments_ai_platform",
+            "elapsed": 0.535918488999414,
+            "parsers": [
+                {
+                    "parser": "model",
+                    "elapsed": 0.19232023699987622,
+                    "parsed_path_count": 17
+                },
+                {
+                    "parser": "test",
+                    "elapsed": 0.34358320599949366,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 18
+        },
+        {
+            "project_name": "dbt_postgres",
+            "elapsed": 0,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0,
+            "parsers": [],
+            "parsed_path_count": 0
+        }
+    ]
+}

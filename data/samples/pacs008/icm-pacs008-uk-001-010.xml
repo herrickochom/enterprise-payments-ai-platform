@@ -1,0 +1,132 @@
+	<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10">
+    <FIToFICstmrCdtTrf>
+        <GrpHdr>
+            <MsgId>ICM-PACS008-UK-001-010</MsgId>
+            <CreDtTm>2026-08-04T17:40:00Z</CreDtTm>
+            <NbOfTxs>1</NbOfTxs>
+            <SttlmInf>
+                <SttlmMtd>CLRG</SttlmMtd>
+                <ClrSys>
+                    <Prtry>UK-FPS</Prtry>
+                </ClrSys>
+            </SttlmInf>
+            <InstgAgt>
+                <FinInstnId>
+                    <BICFI>NWBKGB2L</BICFI>
+                    <Othr>
+                        <Id>UK-FPS-NWBK</Id>
+                    </Othr>
+                </FinInstnId>
+            </InstgAgt>
+            <InstdAgt>
+                <FinInstnId>
+                    <BICFI>BARCGB22</BICFI>
+                    <Othr>
+                        <Id>UK-FPS-BARC</Id>
+                    </Othr>
+                </FinInstnId>
+            </InstdAgt>
+        </GrpHdr>
+
+        <CdtTrfTxInf>
+            <PmtId>
+                <InstrId>INSTR-ICM-PACS008-UK-001-010</InstrId>
+                <EndToEndId>E2E-ICM-PACS008-UK-001-010</EndToEndId>
+                <TxId>TX-ICM-PACS008-UK-001-010</TxId>
+                <UETR>12345678-1234-1234-1234-123456789010</UETR>
+            </PmtId>
+
+            <PmtTpInf>
+                <InstrPrty>NORM</InstrPrty>
+                <SvcLvl>
+                    <Cd>SDVA</Cd>
+                </SvcLvl>
+                <LclInstrm>
+                    <Prtry>FPS</Prtry>
+                </LclInstrm>
+                <CtgyPurp>
+                    <Cd>SALA</Cd>
+                </CtgyPurp>
+            </PmtTpInf>
+
+            <IntrBkSttlmAmt Ccy="GBP">15000.00</IntrBkSttlmAmt>
+            <IntrBkSttlmDt>2026-08-04</IntrBkSttlmDt>
+            <ChrgBr>DEBT</ChrgBr>
+
+            <DbtrAgt>
+                <FinInstnId>
+                    <BICFI>NWBKGB2L</BICFI>
+                    <ClrSysMmbId>
+                        <MmbId>601613</MmbId>
+                    </ClrSysMmbId>
+                </FinInstnId>
+            </DbtrAgt>
+
+            <CdtrAgt>
+                <FinInstnId>
+                    <BICFI>BARCGB22</BICFI>
+                    <ClrSysMmbId>
+                        <MmbId>202015</MmbId>
+                    </ClrSysMmbId>
+                </FinInstnId>
+            </CdtrAgt>
+
+            <Dbtr>
+                <Nm>EPAP Synthetic Debtor Ltd</Nm>
+                <Id>
+                    <OrgId>
+                        <Othr>
+                            <Id>EPAP-DEBTOR-001</Id>
+                        </Othr>
+                    </OrgId>
+                </Id>
+            </Dbtr>
+
+            <DbtrAcct>
+                <Id>
+                    <IBAN>GB29NWBK60161331926819</IBAN>
+                </Id>
+                <Nm>EPAP Main Settlement Account</Nm>
+            </DbtrAcct>
+
+            <Cdtr>
+                <Nm>Herrick Ochom Synthetic</Nm>
+                <Id>
+                    <PrvtId>
+                        <Othr>
+                            <Id>HERRICK-UK-001</Id>
+                        </Othr>
+                    </PrvtId>
+                </Id>
+            </Cdtr>
+
+            <CdtrAcct>
+                <Id>
+                    <IBAN>GB33BUKB20201555555555</IBAN>
+                </Id>
+                <Nm>Herrick Ochom Personal Account</Nm>
+            </CdtrAcct>
+
+            <RmtInf>
+                <Ustrd>Monthly salary payment - synthetic UK FPS</Ustrd>
+            </RmtInf>
+
+            <SplmtryData>
+                <PlcAndNm>UK-HYBRID-OVERLAY</PlcAndNm>
+                <Envlp>
+                    <UKFpsOverlay xmlns="urn:epap:uk:fps:overlay">
+                        <Channel>WEB_PORTAL</Channel>
+                        <CustomerId>CUST-UK-001</CustomerId>
+                        <SessionId>SESS-UK-001</SessionId>
+                        <DeviceId>DEV-UK-001</DeviceId>
+                        <AuthStrength>STRONG</AuthStrength>
+                        <TraceId>TRACE-ICM-PACS008-UK-001-010</TraceId>
+                        <SpanId>SPAN-ICM-PACS008-UK-001-010</SpanId>
+                    </UKFpsOverlay>
+                </Envlp>
+            </SplmtryData>
+        </CdtTrfTxInf>
+    </FIToFICstmrCdtTrf>
+</Document>
+

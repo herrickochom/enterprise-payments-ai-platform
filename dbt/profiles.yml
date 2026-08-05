@@ -1,0 +1,13 @@
+enterprise_payments_ai_platform:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: postgres
+      port: 5432
+      dbname: postgres
+      schema: analytics
+      threads: 1
+      keepalives_idle: 0

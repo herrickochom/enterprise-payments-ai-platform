@@ -1,0 +1,198 @@
+[0m16:24:54.562860 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d38987e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d3ae731a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d38986cf0>]}
+
+
+============================== 16:24:54.567517 | 45d386dc-4f18-49e5-a0f9-69aad3590a3f ==============================
+[0m16:24:54.567517 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:24:54.567972 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'partial_parse': 'True', 'maximum_seed_size_mib': '1', 'fail_fast': 'False', 'profiles_dir': 'dbt', 'static_parser': 'True', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'printer_width': '80', 'hints_enabled': 'True', 'log_path': 'dbt/logs', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'quiet': 'False', 'write_json': 'True', 'warn_error': 'None', 'debug': 'False', 'target_path': 'None', 'use_colors': 'True', 'empty': 'None', 'log_format': 'default', 'version_check': 'True', 'cache_selected_only': 'False', 'use_experimental_parser': 'False'}
+[0m16:24:54.675800 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '45d386dc-4f18-49e5-a0f9-69aad3590a3f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d38f3a5a0>]}
+[0m16:24:54.735325 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '45d386dc-4f18-49e5-a0f9-69aad3590a3f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d37e289b0>]}
+[0m16:24:54.736942 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:24:54.787551 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:24:54.788047 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:24:54.788299 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '45d386dc-4f18-49e5-a0f9-69aad3590a3f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d36f4bdd0>]}
+[0m16:24:55.785930 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '45d386dc-4f18-49e5-a0f9-69aad3590a3f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d35bda0f0>]}
+[0m16:24:55.789027 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:24:55.871205 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:24:55.873220 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:24:55.883077 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:24:55.890533 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 1.3769993, "process_in_blocks": "144", "process_kernel_time": 0.184928, "process_mem_max_rss": "130592", "process_out_blocks": "2304", "process_user_time": 2.229102}
+[0m16:24:55.891023 [debug] [MainThread]: Command `dbt parse` succeeded at 16:24:55.890952 after 1.38 seconds
+[0m16:24:55.891341 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d3824ed20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d3894d5e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x779d34130080>]}
+[0m16:24:55.891608 [debug] [MainThread]: Flushing usage events
+[0m16:24:56.290653 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:27:09.739356 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5dc94830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5d426060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5f659190>]}
+
+
+============================== 16:27:09.742137 | e2c7157d-b76c-4a3c-b39b-1854d25260f6 ==============================
+[0m16:27:09.742137 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:27:09.742657 [debug] [MainThread]: running dbt with arguments {'profiles_dir': 'dbt', 'use_colors': 'True', 'log_cache_events': 'False', 'printer_width': '80', 'debug': 'False', 'hints_enabled': 'True', 'empty': 'None', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'static_parser': 'True', 'use_experimental_parser': 'False', 'maximum_seed_size_mib': '1', 'no_print': 'None', 'log_path': 'dbt/logs', 'quiet': 'False', 'log_format': 'default', 'partial_parse': 'True', 'introspect': 'True', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'warn_error': 'None', 'version_check': 'True', 'write_json': 'True', 'cache_selected_only': 'False', 'target_path': 'None'}
+[0m16:27:09.854731 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e2c7157d-b76c-4a3c-b39b-1854d25260f6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5c2b3b30>]}
+[0m16:27:09.899092 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e2c7157d-b76c-4a3c-b39b-1854d25260f6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5c4eb230>]}
+[0m16:27:09.899864 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:27:09.946229 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:27:10.029532 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 10 files added, 1 files changed.
+[0m16:27:10.029995 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_cancellations.sql
+[0m16:27:10.030225 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_report.sql
+[0m16:27:10.030403 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_status.sql
+[0m16:27:10.030569 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_resolution.sql
+[0m16:27:10.030731 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_party.sql
+[0m16:27:10.030890 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_account.sql
+[0m16:27:10.031049 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_mandate.sql
+[0m16:27:10.031212 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_party_address.sql
+[0m16:27:10.031363 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_lifecycle_event.sql
+[0m16:27:10.031509 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_batch.sql
+[0m16:27:10.031862 [debug] [MainThread]: Partial parsing: updated file: enterprise_payments_ai_platform://models/silver/_silver.yml
+[0m16:27:10.552189 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e2c7157d-b76c-4a3c-b39b-1854d25260f6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5a3913a0>]}
+[0m16:27:10.554967 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:27:10.630400 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:27:10.632161 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:27:10.639472 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:27:10.640369 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.95030457, "process_in_blocks": "0", "process_kernel_time": 0.187227, "process_mem_max_rss": "127892", "process_out_blocks": "2672", "process_user_time": 1.816504}
+[0m16:27:10.640894 [debug] [MainThread]: Command `dbt parse` succeeded at 16:27:10.640779 after 0.95 seconds
+[0m16:27:10.641374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad610e76b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5d8b17f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ad5a35ac30>]}
+[0m16:27:10.641796 [debug] [MainThread]: Flushing usage events
+[0m16:27:11.038830 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:31:34.995294 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b088bc34d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b088687ec0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b088bc3500>]}
+
+
+============================== 16:31:34.997609 | 245a0fa3-2726-472e-9716-95dae4953ca0 ==============================
+[0m16:31:34.997609 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:31:34.997980 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'empty': 'None', 'printer_width': '80', 'no_print': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'hints_enabled': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'quiet': 'False', 'write_json': 'True', 'debug': 'False', 'profiles_dir': 'dbt', 'maximum_seed_size_mib': '1', 'version_check': 'True', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'log_format': 'default', 'cache_selected_only': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'log_path': 'dbt/logs', 'use_colors': 'True', 'fail_fast': 'False'}
+[0m16:31:35.108674 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '245a0fa3-2726-472e-9716-95dae4953ca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b08a7a8260>]}
+[0m16:31:35.152585 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '245a0fa3-2726-472e-9716-95dae4953ca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b088bc34d0>]}
+[0m16:31:35.153453 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:31:35.199709 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:31:35.290130 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 3 files added, 1 files changed.
+[0m16:31:35.290693 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_vpm_pmn_lifecycle_event.sql
+[0m16:31:35.290924 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_cpo_plm_lifecycle_event.sql
+[0m16:31:35.291114 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payments_rawpayload_audit.sql
+[0m16:31:35.291566 [debug] [MainThread]: Partial parsing: updated file: enterprise_payments_ai_platform://models/silver/_silver.yml
+[0m16:31:35.772773 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '245a0fa3-2726-472e-9716-95dae4953ca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b084f49430>]}
+[0m16:31:35.775409 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:31:35.859122 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:31:35.861154 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:31:35.873175 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:31:35.874489 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.9306108, "process_in_blocks": "0", "process_kernel_time": 0.147131, "process_mem_max_rss": "128340", "process_out_blocks": "2808", "process_user_time": 1.825224}
+[0m16:31:35.875090 [debug] [MainThread]: Command `dbt parse` succeeded at 16:31:35.874979 after 0.93 seconds
+[0m16:31:35.875496 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b0884a3a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b087895940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73b0863445c0>]}
+[0m16:31:35.875880 [debug] [MainThread]: Flushing usage events
+[0m16:31:36.284920 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:32:55.432722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52d8d4cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52ec67b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52d747ef0>]}
+
+
+============================== 16:32:55.436715 | 6aff242e-c9b0-4334-ab6c-e3bb6595cf2f ==============================
+[0m16:32:55.436715 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:32:55.437252 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'use_colors': 'True', 'maximum_seed_size_mib': '1', 'introspect': 'True', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'debug': 'False', 'log_format': 'default', 'static_parser': 'True', 'cache_selected_only': 'False', 'log_path': 'dbt/logs', 'use_experimental_parser': 'False', 'hints_enabled': 'True', 'quiet': 'False', 'fail_fast': 'False', 'target_path': 'None', 'profiles_dir': 'dbt', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'no_print': 'None', 'write_json': 'True', 'partial_parse': 'True'}
+[0m16:32:55.557289 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6aff242e-c9b0-4334-ab6c-e3bb6595cf2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52d2abd40>]}
+[0m16:32:55.598048 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6aff242e-c9b0-4334-ab6c-e3bb6595cf2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52d3313a0>]}
+[0m16:32:55.598798 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:32:55.644781 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:32:55.733753 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 0 files added, 1 files changed.
+[0m16:32:55.734611 [debug] [MainThread]: Partial parsing: updated file: enterprise_payments_ai_platform://models/silver/_silver.yml
+[0m16:32:55.734868 [debug] [MainThread]: Partial parsing: deleted file: enterprise_payments_ai_platform://models/silver/slv_payments_rawpayload_audit.sql
+[0m16:32:55.798162 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6aff242e-c9b0-4334-ab6c-e3bb6595cf2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52cc552b0>]}
+[0m16:32:55.801148 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:32:55.935572 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:32:55.937388 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:32:55.946081 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:32:55.946951 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.5641396, "process_in_blocks": "0", "process_kernel_time": 0.17813, "process_mem_max_rss": "124176", "process_out_blocks": "2768", "process_user_time": 1.449331}
+[0m16:32:55.947285 [debug] [MainThread]: Command `dbt parse` succeeded at 16:32:55.947222 after 0.56 seconds
+[0m16:32:55.947537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52dc54050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52dc891f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79f52c208440>]}
+[0m16:32:55.947766 [debug] [MainThread]: Flushing usage events
+[0m16:32:56.359473 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:40:29.979886 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e2ade0f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e06282c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e1a12780>]}
+
+
+============================== 16:40:29.984510 | fbb61df1-caf4-406d-8548-92cab5c4900d ==============================
+[0m16:40:29.984510 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:40:29.985001 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'profiles_dir': 'dbt', 'use_colors': 'True', 'hints_enabled': 'True', 'write_json': 'True', 'indirect_selection': 'eager', 'log_path': 'dbt/logs', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'empty': 'None', 'debug': 'False', 'target_path': 'None', 'log_cache_events': 'False', 'static_parser': 'True', 'printer_width': '80', 'warn_error': 'None', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'maximum_seed_size_mib': '1', 'partial_parse': 'True', 'no_print': 'None', 'version_check': 'True'}
+[0m16:40:30.159990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fbb61df1-caf4-406d-8548-92cab5c4900d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e1562030>]}
+[0m16:40:30.204448 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fbb61df1-caf4-406d-8548-92cab5c4900d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e0b73800>]}
+[0m16:40:30.207590 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:40:30.266272 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:40:30.404062 [debug] [MainThread]: Partial parsing enabled: 5 files deleted, 6 files added, 0 files changed.
+[0m16:40:30.404688 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_icmn_pmn_lifecycle_event.sql
+[0m16:40:30.404931 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_status_resons.sql
+[0m16:40:30.405119 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_paymnets_qd_results.sql
+[0m16:40:30.405299 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_status_report.sql
+[0m16:40:30.405492 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_camt005_cancellations.sql
+[0m16:40:30.405660 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/slv_payment_camt029_resolution.sql
+[0m16:40:30.405872 [debug] [MainThread]: Partial parsing: deleted file: enterprise_payments_ai_platform://models/silver/slv_vpm_pmn_lifecycle_event.sql
+[0m16:40:30.406105 [debug] [MainThread]: Partial parsing: deleted file: enterprise_payments_ai_platform://models/silver/slv_payment_report.sql
+[0m16:40:30.406293 [debug] [MainThread]: Partial parsing: deleted file: enterprise_payments_ai_platform://models/silver/slv_payment_resolution.sql
+[0m16:40:30.406483 [debug] [MainThread]: Partial parsing: deleted file: enterprise_payments_ai_platform://models/silver/slv_payment_cancellations.sql
+[0m16:40:30.406654 [debug] [MainThread]: Partial parsing: deleted file: enterprise_payments_ai_platform://models/silver/slv_payment_status.sql
+[0m16:40:30.759129 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'slv_vpm_pmn_lifecycle_event' in the 'models' section of file 'models/silver/_silver.yml'
+[0m16:40:30.761566 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'slv_payment_report' in the 'models' section of file 'models/silver/_silver.yml'
+[0m16:40:30.763955 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'slv_payment_resolution' in the 'models' section of file 'models/silver/_silver.yml'
+[0m16:40:30.765874 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'slv_payment_cancellations' in the 'models' section of file 'models/silver/_silver.yml'
+[0m16:40:30.767730 [warn ] [MainThread]: [[33mWARNING[0m]: Did not find matching node for patch with name 'slv_payment_status' in the 'models' section of file 'models/silver/_silver.yml'
+[0m16:40:30.856727 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_vpm_pmn_lifecycle_event_lifecycle_event_id.968247ae35' (models/silver/_silver.yml) depends on a node named 'slv_vpm_pmn_lifecycle_event' in package '' which was not found
+[0m16:40:30.857166 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.unique_slv_vpm_pmn_lifecycle_event_lifecycle_event_id.d33c13a43d' (models/silver/_silver.yml) depends on a node named 'slv_vpm_pmn_lifecycle_event' in package '' which was not found
+[0m16:40:30.857611 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_vpm_pmn_lifecycle_event_transaction_id.bb2482e007' (models/silver/_silver.yml) depends on a node named 'slv_vpm_pmn_lifecycle_event' in package '' which was not found
+[0m16:40:30.857983 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_report_report_id.36867e33bd' (models/silver/_silver.yml) depends on a node named 'slv_payment_report' in package '' which was not found
+[0m16:40:30.858566 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.unique_slv_payment_report_report_id.e5541e86dd' (models/silver/_silver.yml) depends on a node named 'slv_payment_report' in package '' which was not found
+[0m16:40:30.858819 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_report_status_id.b40f583468' (models/silver/_silver.yml) depends on a node named 'slv_payment_report' in package '' which was not found
+[0m16:40:30.859051 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_resolution_resolution_id.6cc2a32458' (models/silver/_silver.yml) depends on a node named 'slv_payment_resolution' in package '' which was not found
+[0m16:40:30.859262 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.unique_slv_payment_resolution_resolution_id.a8a359705c' (models/silver/_silver.yml) depends on a node named 'slv_payment_resolution' in package '' which was not found
+[0m16:40:30.859464 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_resolution_cancellation_id.52e05847fb' (models/silver/_silver.yml) depends on a node named 'slv_payment_resolution' in package '' which was not found
+[0m16:40:30.859664 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_cancellations_cancellation_id.1d651eea4f' (models/silver/_silver.yml) depends on a node named 'slv_payment_cancellations' in package '' which was not found
+[0m16:40:30.859853 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.unique_slv_payment_cancellations_cancellation_id.75a2f24407' (models/silver/_silver.yml) depends on a node named 'slv_payment_cancellations' in package '' which was not found
+[0m16:40:30.860047 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_cancellations_transaction_id.398823de09' (models/silver/_silver.yml) depends on a node named 'slv_payment_cancellations' in package '' which was not found
+[0m16:40:30.860259 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_status_status_id.3df05cfbd2' (models/silver/_silver.yml) depends on a node named 'slv_payment_status' in package '' which was not found
+[0m16:40:30.860454 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.unique_slv_payment_status_status_id.adabf45188' (models/silver/_silver.yml) depends on a node named 'slv_payment_status' in package '' which was not found
+[0m16:40:30.860642 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.enterprise_payments_ai_platform.not_null_slv_payment_status_transaction_id.e02a35e26e' (models/silver/_silver.yml) depends on a node named 'slv_payment_status' in package '' which was not found
+[0m16:40:30.914186 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fbb61df1-caf4-406d-8548-92cab5c4900d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2ddd802f0>]}
+[0m16:40:30.916749 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:40:30.991065 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:40:30.994311 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:40:31.011537 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:40:31.012979 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 1.0918697, "process_in_blocks": "85944", "process_kernel_time": 0.302749, "process_mem_max_rss": "127716", "process_out_blocks": "2744", "process_user_time": 1.984237}
+[0m16:40:31.013376 [debug] [MainThread]: Command `dbt parse` succeeded at 16:40:31.013304 after 1.09 seconds
+[0m16:40:31.013647 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e2ade0f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2e0faf740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70c2ddd83350>]}
+[0m16:40:31.013910 [debug] [MainThread]: Flushing usage events
+[0m16:40:31.422285 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:46:17.214978 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a57fa5d370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a580b1d9a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a57fb28560>]}
+
+
+============================== 16:46:17.219372 | d1cd3273-4270-46bc-9faf-cee970e8e9c4 ==============================
+[0m16:46:17.219372 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:46:17.219867 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'quiet': 'False', 'write_json': 'True', 'maximum_seed_size_mib': '1', 'hints_enabled': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'profiles_dir': 'dbt', 'no_print': 'None', 'fail_fast': 'False', 'log_cache_events': 'False', 'log_path': 'dbt/logs', 'static_parser': 'True', 'debug': 'False', 'warn_error': 'None', 'log_format': 'default', 'empty': 'None', 'cache_selected_only': 'False', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'printer_width': '80', 'target_path': 'None', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m16:46:17.364557 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd1cd3273-4270-46bc-9faf-cee970e8e9c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a57ffb6630>]}
+[0m16:46:17.407174 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd1cd3273-4270-46bc-9faf-cee970e8e9c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a57ee4f950>]}
+[0m16:46:17.411489 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:46:17.471250 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:46:17.610117 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m16:46:17.611062 [debug] [MainThread]: Partial parsing: updated file: enterprise_payments_ai_platform://models/silver/_silver.yml
+[0m16:46:17.982310 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd1cd3273-4270-46bc-9faf-cee970e8e9c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a57e329670>]}
+[0m16:46:17.985617 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:46:18.064756 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:46:18.067784 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:46:18.084296 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:46:18.085461 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 0.92506444, "process_in_blocks": "87496", "process_kernel_time": 0.190414, "process_mem_max_rss": "126444", "process_out_blocks": "2800", "process_user_time": 1.802865}
+[0m16:46:18.085825 [debug] [MainThread]: Command `dbt parse` succeeded at 16:46:18.085759 after 0.93 seconds
+[0m16:46:18.086098 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a5800fd340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a581cdf4a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a57f9ebc50>]}
+[0m16:46:18.086339 [debug] [MainThread]: Flushing usage events
+[0m16:46:18.483445 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:48:18.143538 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6ae27fe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6c024650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6ae256a0>]}
+
+
+============================== 16:48:18.147303 | 6b91e5d2-7e1c-442c-8d15-3b909762bcc0 ==============================
+[0m16:48:18.147303 [info ] [MainThread]: Running with dbt=1.12.0
+[0m16:48:18.147713 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'fail_fast': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'target_path': 'None', 'debug': 'False', 'printer_width': '80', 'no_print': 'None', 'use_colors': 'True', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'maximum_seed_size_mib': '1', 'hints_enabled': 'True', 'invocation_command': 'dbt parse --project-dir dbt --profiles-dir dbt', 'static_parser': 'True', 'log_path': 'dbt/logs', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'profiles_dir': 'dbt', 'quiet': 'False', 'version_check': 'True', 'log_cache_events': 'False', 'introspect': 'True', 'warn_error': 'None'}
+[0m16:48:18.297045 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6b91e5d2-7e1c-442c-8d15-3b909762bcc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6bf0cef0>]}
+[0m16:48:18.342219 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6b91e5d2-7e1c-442c-8d15-3b909762bcc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6bf0e9c0>]}
+[0m16:48:18.345635 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m16:48:18.397273 [debug] [MainThread]: checksum: 1456d82f50d8e0cd3108f35cda9c68c6e84db69eef4f8219a8ea7b80222322f1, vars: {}, profile: enterprise_payments_ai_platform, target: dev, version: 1.12.0
+[0m16:48:18.526469 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m16:48:18.527293 [debug] [MainThread]: Partial parsing: added file: enterprise_payments_ai_platform://models/silver/_silver_schema.yml
+[0m16:48:19.120921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6b91e5d2-7e1c-442c-8d15-3b909762bcc0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f691e6690>]}
+[0m16:48:19.124271 [info ] [MainThread]: Performance info: dbt/target/perf_info.json
+[0m16:48:19.199379 [debug] [MainThread]: Wrote artifact WritableManifest to dbt/target/manifest.json
+[0m16:48:19.203547 [debug] [MainThread]: Wrote artifact SemanticManifest to dbt/target/semantic_manifest.json
+[0m16:48:19.220904 [debug] [MainThread]: Wrote artifact OsiDocument to dbt/target/osi_document.json
+[0m16:48:19.222229 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 1.1304617, "process_in_blocks": "85960", "process_kernel_time": 0.221705, "process_mem_max_rss": "128020", "process_out_blocks": "2800", "process_user_time": 2.019107}
+[0m16:48:19.222607 [debug] [MainThread]: Command `dbt parse` succeeded at 16:48:19.222538 after 1.13 seconds
+[0m16:48:19.222865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6f766420>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6bbeb4a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b4f6bbe8680>]}
+[0m16:48:19.223103 [debug] [MainThread]: Flushing usage events
+[0m16:48:19.628546 [debug] [MainThread]: An error was encountered while trying to flush usage events
